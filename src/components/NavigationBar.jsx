@@ -16,19 +16,22 @@ function NavigationBar() {
         height="72"
       />
 
-      <a className={styles.navLink} href="https://gqlm85.csb.app/">
+      <a className={styles.navLink} href="https://f5v65d-3000.csb.app/">
         Home
       </a>
-      <a className={styles.navLink} href="https://gqlm85.csb.app/community">
+      <a
+        className={styles.navLink}
+        href="https://f5v65d-3000.csb.app/community"
+      >
         Community
       </a>
-      <a className={styles.navLink} href="https://gqlm85.csb.app/notice">
+      <a className={styles.navLink} href="https://f5v65d-3000.csb.app/notice">
         Notice
       </a>
       <a className={styles.navLink} href="#">
         Buddy Matching
       </a>
-      <a className={styles.navLink} href="https://gqlm85.csb.app/calendar">
+      <a className={styles.navLink} href="https://f5v65d-3000.csb.app/calendar">
         Calendar
       </a>
 
