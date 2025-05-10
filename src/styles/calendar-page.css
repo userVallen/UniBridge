@@ -1,0 +1,49 @@
+.calendar-page-container {
+  display: flex;
+  flex-direction: column;
+  flex: 3;
+}
+
+.calendar-page-container .react-calendar {
+  border: none;
+  width: 100%;
+}
+
+.calendar-page-container
+  .react-calendar__month-view__days__day--neighboringMonth {
+  background-color: rgba(248, 248, 248, 1);
+}
+
+.calendar-page-container .react-calendar__month-view__weekdays {
+  text-align: start;
+}
+
+.calendar-page-container .react-calendar__month-view__weekdays__weekday > abbr {
+  text-decoration: none;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  color: rgba(150, 150, 150, 1);
+}
+
+.calendar-page-container .react-calendar__viewContainer,
+.calendar-page-container .react-calendar__month-view__weekdays__weekday {
+  border: rgba(0, 0, 0, 0.12) solid 0.5px;
+}
+
+.calendar-page-container .react-calendar__tile {
+  display: flex;
+  min-height: 9rem;
+  border: rgba(0, 0, 0, 0.12) solid 0.5px;
+  align-items: start;
+  justify-content: start;
+}
+
+.calendar-page-container .react-calendar__tile--now {
+  background-color: transparent;
+}
+
+.calendar-page-container
+  .react-calendar__navigation__prev2-button
+  .react-calendar__navigation__next2-button {
+  visibility: hidden;
+}

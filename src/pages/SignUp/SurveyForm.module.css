@@ -1,0 +1,23 @@
+.checkboxInput {
+  margin-right: 5px;
+}
+
+.formContainer {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.formSubcontainer {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(245, 245, 245, 1);
+  border-radius: 8px;
+  margin: 0px 10px;
+  width: 15rem;
+}
+
+.formWrapper {
+  margin: 10px;
+}

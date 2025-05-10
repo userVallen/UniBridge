@@ -1,0 +1,20 @@
+.buttonContainer {
+  display: flex;
+  width: fit-content;
+}
+
+.labelContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navigateButton {
+  background-color: transparent;
+  border: none;
+}
+
+.timeLabel {
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+}

@@ -1,0 +1,72 @@
+.alternatePrompt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  margin-top: 2rem;
+}
+
+.anchorWrapper {
+  text-decoration: underline;
+}
+
+.app {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+}
+
+.contentContainer {
+  margin: 1.5rem 2rem;
+  width: fit-content;
+}
+
+.formWrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.inputWrapper,
+.selectWrapper {
+  height: 2.25rem;
+  border-radius: 8px;
+  margin-top: 0.5rem;
+  border: 1px solid rgba(222, 222, 222, 1);
+  font-size: 14px;
+}
+
+.inputWrapper::placeholder {
+  font-style: italic;
+}
+
+.paragraphWrapper {
+  color: rgba(132, 132, 132, 1);
+}
+
+.passwordLabel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.submitButton {
+  border-radius: 10px;
+  background-color: rgba(8, 31, 92, 1);
+  color: rgba(255, 255, 255, 1);
+  width: 100%;
+  height: 2.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.window {
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(222, 222, 222, 1);
+  border-radius: 8px;
+}

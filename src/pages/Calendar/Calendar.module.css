@@ -1,0 +1,40 @@
+.checkboxWrapper {
+  margin-right: 5px;
+  height: fit-content;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  margin: 20px 4.75rem;
+}
+
+.filterBox {
+  display: flex;
+  flex-direction: column;
+  margin: 3rem;
+  border: 1px dashed rgba(123, 97, 255, 1);
+  border-radius: 5px;
+  padding: 1rem;
+}
+
+.filterContainer {
+  display: flex;
+  flex: 1;
+  justify-content: start;
+  align-items: start;
+}
+
+.labelContainer {
+  padding: 3px 4px;
+  border-radius: 4px;
+}
+
+.optionLabel {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  margin-bottom: 0.5rem;
+}
