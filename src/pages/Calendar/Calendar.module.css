@@ -1,5 +1,6 @@
 .checkboxWrapper {
   margin-right: 5px;
+  margin-top: 6px;
   height: fit-content;
 }
 
@@ -12,7 +13,7 @@
 .filterBox {
   display: flex;
   flex-direction: column;
-  margin: 3rem;
+  margin: 3rem 2rem;
   border: 1px dashed rgba(123, 97, 255, 1);
   border-radius: 5px;
   padding: 1rem;
@@ -21,7 +22,7 @@
 .filterContainer {
   display: flex;
   flex: 1;
-  justify-content: start;
+  justify-content: center;
   align-items: start;
 }
 

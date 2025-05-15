@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Card from "react-bootstrap/Card";
+import { Row, Col, Container } from "react-bootstrap";
 import CalendarWrapper from "./CalendarWrapper";
 import CardWidget from "./CardWidget";
 import NavigationBar from "../../components/NavigationBar";
@@ -10,47 +12,45 @@ import styles from "./Home.module.css";
 
 function Home() {
   // We need another page/small window to input events (set the title, date, etc.)
-  const [statefulNoticeEvents, setNoticeEvent] = useState([]);
-  const [statefulCommunityEvents, setCommunityEvent] = useState([]);
-
-  // Temporary placeholder events. In real practice, events should be stateful.
-  var noticeEvents = [
+  const [noticeEvents, setNoticeEvent] = useState([
     { title: "Event Title 1", date: "1 May 2025", place: "Room 102" },
     { title: "Event Title 2", date: "2 May 2025", place: "Room 103" },
-  ];
-
-  var communityEvents = [
+  ]);
+  const [communityEvents, setCommunityEvent] = useState([
     { title: "Post Title 1", date: "1 June 2025", subject: "Person A" },
     { title: "Post Title 2", date: "2 June 2025", subject: "Person B" },
-  ];
+  ]);
 
   return (
     <div className={styles.app}>
       <NavigationBar />
-      <div className={styles.content}>
-        <div className="calendar-widget-container">
-          <div class="calendar-container">
-            <CalendarWrapper />
-          </div>
-        </div>
-
-        <div class={styles.sidebar}>
-          <CardWidget
-            link="#"
-            title="Notice"
-            img={megaphone}
-            alt="notice icon"
-            entries={noticeEvents}
-          />
-          <CardWidget
-            link="#"
-            title="Community"
-            img={chatBubble}
-            alt="community icon"
-            entries={communityEvents}
-          />
-        </div>
-      </div>
+      <Container fluid className="my-4">
+        <Row style={{ padding: "0 4.75rem" }}>
+          <Col lg={6} className="mb-3">
+            <Card className="calendar-widget-container border-0">
+              <Card className="calendar-container">
+                <CalendarWrapper />
+              </Card>
+            </Card>
+          </Col>
+          <Col lg={6}>
+            <CardWidget
+              link="#"
+              title="Notice"
+              img={megaphone}
+              alt="notice icon"
+              entries={noticeEvents}
+            />
+            <CardWidget
+              link="#"
+              title="Community"
+              img={chatBubble}
+              alt="community icon"
+              entries={communityEvents}
+            />
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 }

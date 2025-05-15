@@ -17,7 +17,6 @@ export default function App() {
         <Route path="/calendar" element={<Calendar />} />
         <Route path="/community" element={<Community />} />
         <Route path="/notice" element={<Notice />} />
-        {/* <Route path="/announcement" element={<Announcement />} /> */}
       </Routes>
     </Router>
   );

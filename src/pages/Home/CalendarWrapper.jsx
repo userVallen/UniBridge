@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Container from "react-bootstrap/Container";
 import ReactCalendar from "react-calendar";
 import Navigation from "./Navigation";
 
@@ -30,11 +31,13 @@ function CalendarWrapper() {
         onClickNext={handleNext}
         onClickPrev={handlePrev}
       />
-      <ReactCalendar
-        showNavigation={false}
-        activeStartDate={startDate}
-        onActiveStartDateChange={setStartDate}
-      />
+      <Container>
+        <ReactCalendar
+          showNavigation={false}
+          activeStartDate={startDate}
+          onActiveStartDateChange={setStartDate}
+        />
+      </Container>
     </>
   );
 }

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
-import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import { Button, Card } from "react-bootstrap";
+import { NavigateBefore, NavigateNext } from "@mui/icons-material";
 import styles from "./Navigation.module.css";
 
 function Navigation({ startDate, onClickNext, onClickPrev }) {
@@ -24,15 +24,27 @@ function Navigation({ startDate, onClickNext, onClickPrev }) {
 
   return (
     <>
-      <div className={styles.navigationContainer}>
-        <button className={styles.navigateButton} onClick={onClickPrev}>
-          <NavigateBeforeIcon />
-        </button>
-        <p className={styles.timeLabel}>{`${currentMonth} ${currentYear}`}</p>
-        <button className={styles.navigateButton} onClick={onClickNext}>
-          <NavigateNextIcon />
-        </button>
-      </div>
+      <Card className="d-flex flex-row border-0 align-items-center justify-content-between flex-wrap my-3 w-100">
+        <Button
+          variant="link"
+          className={styles.navigateButton}
+          onClick={onClickPrev}
+          aria-label="Previous month"
+        >
+          <NavigateBefore />
+        </Button>
+        <p
+          className={`m-0 ${styles.timeLabel}`}
+        >{`${currentMonth} ${currentYear}`}</p>
+        <Button
+          variant="link"
+          className={styles.navigateButton}
+          onClick={onClickNext}
+          aria-label="Next month"
+        >
+          <NavigateNext />
+        </Button>
+      </Card>
       <hr className={styles.hrWrapper} />
     </>
   );

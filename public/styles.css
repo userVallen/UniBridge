@@ -2,6 +2,34 @@ body {
   margin: 0;
 }
 
+.container {
+  padding: 0;
+  max-width: fit-content;
+}
+
+.nav-link,
+.rounded-pill > * {
+  font-family: "Nanum Gothic", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  color: #081f5c;
+  font-size: 22px;
+}
+
+.navbar-brand {
+  margin: 0;
+}
+
+.navbar-nav {
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.rounded-pill > * {
+  font-size: 10px;
+}
+
 .inter {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;

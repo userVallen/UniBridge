@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import ReactCalendar from "react-calendar";
+import { Row, Col, Container } from "react-bootstrap";
 import NavigationBar from "../../components/NavigationBar";
 import NavigationLabel from "./NavigationLabel";
 import "../../styles/calendar-page.css";
 import styles from "./Calendar.module.css";
 
 function Calendar() {
+  const [startDate, setStartDate] = useState(new Date());
+
   const majorList = [
     "Mobile Systems Engineering",
     "Global Business Administration",
@@ -60,8 +63,6 @@ function Calendar() {
     },
   ];
 
-  const [startDate, setStartDate] = useState(new Date());
-
   function handleNext() {
     const nextMonth = new Date(
       startDate.getFullYear(),
@@ -83,45 +84,53 @@ function Calendar() {
   return (
     <>
       <NavigationBar />
-      <div className={styles.container}>
-        <div className="calendar-page-container">
-          <NavigationLabel
-            startDate={startDate}
-            onClickRight={handleNext}
-            onClickLeft={handlePrev}
-          />
-          <ReactCalendar
-            showNavigation={false}
-            activeStartDate={startDate}
-            onActiveStartDateChange={setStartDate}
-          />
-        </div>
-        <div className={styles.filterContainer}>
-          <div className={styles.filterBox}>
-            {majorList.map((major, index) => {
-              const colorSet = colorList[index % colorList.length];
-              return (
-                <div className={styles.optionLabel}>
-                  <input
-                    className={styles.checkboxWrapper}
-                    type="checkbox"
-                    value={major}
-                  />
-                  <div
-                    className={styles.labelContainer}
-                    style={{
-                      backgroundColor: colorSet.background,
-                      color: colorSet.text,
-                    }}
-                  >
-                    <label>{major}</label>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </div>
+      <Container className={styles.container}>
+        <Row>
+          <Col lg={9} md={9} sm={12} className="mb-3">
+            <div className="calendar-page-container">
+              <NavigationLabel
+                startDate={startDate}
+                onClickRight={handleNext}
+                onClickLeft={handlePrev}
+              />
+              <ReactCalendar
+                showNavigation={false}
+                activeStartDate={startDate}
+                onActiveStartDateChange={setStartDate}
+              />
+            </div>
+          </Col>
+
+          <Col lg={3} md={3} sm={12}>
+            <div className={styles.filterContainer}>
+              <div className={styles.filterBox}>
+                {majorList.map((major, index) => {
+                  const colorSet = colorList[index % colorList.length];
+                  return (
+                    <div key={index} className={styles.optionLabel}>
+                      <input
+                        className={styles.checkboxWrapper}
+                        type="checkbox"
+                        value={major}
+                      />
+                      <div
+                        key={index}
+                        className={styles.labelContainer}
+                        style={{
+                          backgroundColor: colorSet.background,
+                          color: colorSet.text,
+                        }}
+                      >
+                        <label>{major}</label>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 }

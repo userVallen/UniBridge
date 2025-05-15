@@ -3,22 +3,24 @@ a {
   text-decoration: none;
 }
 
-h1 {
-  font-size: 34px;
-}
-
 .app {
   display: flex;
   flex-direction: column;
   height: 100vh;
   font-family: sans-serif;
   text-align: center;
+  margin: 0;
+  max-width: 100%;
+}
+
+.app > * {
+  max-width: 100%;
 }
 
 .content {
   display: flex;
   flex-direction: row;
-  margin-top: 20px;
+  margin-top: 5px;
   margin-bottom: 20px;
 }
 

@@ -19,3 +19,7 @@
   color: rgba(117, 117, 117, 1);
   text-transform: uppercase;
 }
+
+.listWrapper {
+  font-family: "Nanum Gothic", sans-serif;
+}
