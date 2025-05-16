@@ -11,16 +11,8 @@ function CardWidget({ link, img, alt, title, entries }) {
           className="d-flex align-items-center text-start p-0"
           style={{ margin: "12px" }}
         >
-          <img
-            src={img}
-            alt={alt}
-            style={{ height: "37px", width: "auto", margin: "5px" }}
-          />
-          <Card.Title
-            className={`fs-4 align-items-center justify-content-center ${styles.cardTitle}`}
-          >
-            {title}
-          </Card.Title>
+          <img src={img} alt={alt} className={styles.cardIcon} />
+          <Card.Title className={styles.cardTitle}>{title}</Card.Title>
         </Card.Body>
 
         <ListGroup

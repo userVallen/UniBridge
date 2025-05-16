@@ -2,19 +2,14 @@ import React from "react";
 import { ToggleButtonGroup, ToggleButton } from "react-bootstrap";
 import { useState } from "react";
 import globe from "../assets/globe.png";
+import styles from "./LanguageToggle.module.css";
 
 function LanguageToggle() {
   const [language, setLanguage] = useState("ENG");
 
   return (
     <>
-      <img
-        src={globe}
-        height="20"
-        width="auto"
-        alt="globe icon"
-        style={{ margin: "5px" }}
-      />
+      <img src={globe} alt="globe icon" className={styles.languageIcon} />
       <ToggleButtonGroup
         type="radio"
         name="language"

@@ -7,10 +7,10 @@ function CardEntry({ title, date, place, subject }) {
     <ListGroup.Item className={`border-0 ${styles.listWrapper}`}>
       <Row>
         <Col>
-          <p className="fw-bold fs-5 mb-1">{title}</p>
-          <p className="text-muted small m-0">{date}</p>
-          <p className="text-muted small m-0">{place}</p>
-          <p className="text-muted small m-0">{subject}</p>
+          <p className={styles.entryTitle}>{title}</p>
+          <p className={styles.entryBody}>{date}</p>
+          <p className={styles.entryBody}>{place}</p>
+          <p className={styles.entryBody}>{subject}</p>
         </Col>
       </Row>
     </ListGroup.Item>

@@ -1,16 +1,35 @@
+.logo {
+  height: 72px;
+  width: auto;
+}
+
 .navBar {
   margin: 0.75em 2em;
 }
 
-.navBarContainer {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
+.profile {
+  height: 50px;
+  width: auto;
+  margin-left: 10px;
 }
+
 .selected {
   background-color: rgba(132, 132, 132, 1);
   border: 0px rgba(132, 132, 132, 1);
   color: rgba(255, 255, 255, 1);
+}
+
+/* ------- Responsive Styles ------- */
+@media (max-width: 1200px) {
+  .logo {
+    height: 56px;
+  }
+
+  .navBar {
+    margin: 0.75em 1em;
+  }
+
+  .profile {
+    height: 38px;
+  }
 }

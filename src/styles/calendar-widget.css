@@ -65,3 +65,25 @@
 .calendar-widget-container .react-calendar__tile--now {
   background: initial;
 }
+
+/* ------- Responsive Styles ------- */
+@media (max-width: 768px) {
+  .calendar-widget-container .calendar-container {
+    padding: 10px;
+  }
+
+  .calendar-widget-container .react-calendar {
+    font-size: 0.85rem;
+  }
+
+  .calendar-widget-container .react-calendar__month-view__days__day {
+    padding: 0.25rem;
+    aspect-ratio: 1 / 1;
+  }
+}
+
+@media (max-width: 576px) {
+  .calendar-widget-container .react-calendar {
+    font-size: 0.75rem;
+  }
+}

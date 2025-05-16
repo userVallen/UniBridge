@@ -24,8 +24,8 @@ function Home() {
   return (
     <div className={styles.app}>
       <NavigationBar />
-      <Container fluid className="my-4">
-        <Row style={{ padding: "0 4.75rem" }}>
+      <Container fluid className={styles.content}>
+        <Row className={styles.contentRow}>
           <Col lg={6} className="mb-3">
             <Card className="calendar-widget-container border-0">
               <Card className="calendar-container">

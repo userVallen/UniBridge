@@ -24,7 +24,7 @@ function Navigation({ startDate, onClickNext, onClickPrev }) {
 
   return (
     <>
-      <Card className="d-flex flex-row border-0 align-items-center justify-content-between flex-wrap my-3 w-100">
+      <Card className={styles.navigationContainer}>
         <Button
           variant="link"
           className={styles.navigateButton}
