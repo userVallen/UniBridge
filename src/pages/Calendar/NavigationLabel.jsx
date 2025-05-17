@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "./NavigationLabel.module.css";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import styles from "./NavigationLabel.module.css";
 
 function NavigationLabel({ startDate, onClickRight, onClickLeft }) {
   const monthList = [

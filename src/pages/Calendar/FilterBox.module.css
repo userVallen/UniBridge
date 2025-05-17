@@ -1,0 +1,50 @@
+.checkboxWrapper {
+  margin-right: 5px;
+  margin-top: 6px;
+  height: fit-content;
+}
+
+.filterBox {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem;
+  border: 1px dashed rgba(123, 97, 255, 1);
+  border-radius: 5px;
+  padding: 1rem;
+}
+
+.filterContainer {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: start;
+}
+
+.labelContainer {
+  padding: 3px 4px;
+  border-radius: 4px;
+}
+
+.optionLabel {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  margin: 0.25rem 0;
+}
+
+/* ------- Responsive Styles ------- */
+@media (max-width: 1200px) {
+  .labelContainer {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .filterBox {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px 15px;
+  }
+}
