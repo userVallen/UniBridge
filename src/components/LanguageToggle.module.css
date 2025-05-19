@@ -1,0 +1,18 @@
+.languageIcon {
+  height: 20px;
+  width: auto;
+  margin: 5px;
+}
+
+/* ------- Responsive Styles ------- */
+@media (max-width: 1200px) {
+  .languageIcon {
+    height: 18px;
+  }
+}
+
+@media (max-width: 992px) {
+  .languageIcon {
+    height: 16px;
+  }
+}

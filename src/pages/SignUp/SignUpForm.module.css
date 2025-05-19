@@ -1,0 +1,24 @@
+.formContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: fit-content;
+}
+
+.formSubcontainer {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+}
+
+.inputWrapper {
+  width: 22rem;
+}
+
+.left {
+  margin-right: 2rem;
+}
+
+.right {
+  margin-left: 2rem;
+}

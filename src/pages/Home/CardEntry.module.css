@@ -1,0 +1,45 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  margin: 0px 12px 12px 24px;
+  font-family: "Nanum Gothic", sans-serif;
+}
+
+.entryTitle {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 0.25rem;
+}
+
+.entryBody {
+  display: flex;
+  font-size: 14px;
+  color: rgba(117, 117, 117, 1);
+  margin: 0;
+}
+
+.listWrapper {
+  font-family: "Nanum Gothic", sans-serif;
+}
+
+/* ------- Responsive Styles ------- */
+@media (max-width: 1200px) {
+  .entryTitle {
+    font-size: 18px;
+  }
+
+  .entryBody {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  .entryTitle {
+    font-size: 16px;
+  }
+
+  .entryBody {
+    font-size: 10px;
+  }
+}

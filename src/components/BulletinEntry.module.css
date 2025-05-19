@@ -1,0 +1,34 @@
+.entryContainer {
+  display: flex;
+  flex-direction: row;
+  font-family: "Nanum Gothic", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  height: 1rem;
+}
+
+.entryContainer > * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.entryNumber {
+  flex: 1;
+}
+
+.entryDepartment {
+  flex: 6;
+}
+
+.entryTitle {
+  flex: 5;
+}
+
+.entryAdmin {
+  flex: 2;
+}
+
+.entryDate {
+  flex: 3;
+}

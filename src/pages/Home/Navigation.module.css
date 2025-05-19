@@ -1,0 +1,60 @@
+.hrWrapper {
+  border: none;
+  height: 1px;
+  width: 95%;
+  background-color: rgba(189, 189, 189, 1);
+}
+
+.navigateButton {
+  color: black;
+  border: none;
+}
+
+.navigationContainer {
+  display: flex;
+  flex-direction: row;
+  border: 0;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 1rem;
+  width: 100%;
+}
+
+.timeLabel {
+  font-family: "Lato", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: rgba(130, 130, 130, 1);
+}
+
+/* ------- Responsive Styles ------- */
+@media (max-width: 992px) {
+  .navigationContainer {
+    margin: 0.5rem 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .hrWrapper {
+    margin: 0.5rem 0;
+  }
+
+  .timeLabel {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .hrWrapper {
+    margin: 10px 0;
+  }
+
+  .navigationContainer {
+    margin: 0;
+  }
+
+  .timeLabel {
+    font-size: 14px !important;
+  }
+}

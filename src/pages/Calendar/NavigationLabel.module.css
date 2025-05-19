@@ -1,0 +1,48 @@
+.buttonContainer {
+  display: flex;
+  width: fit-content;
+}
+
+.labelContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.navigateButton {
+  background-color: transparent;
+  border: none;
+}
+
+.navigateButton > * {
+  width: auto;
+}
+
+.timeLabel {
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* ------- Responsive Styles ------- */
+@media (max-width: 992px) {
+  .timeLabel {
+    font-size: 14px;
+  }
+
+  .navigateButton > * {
+    height: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .timeLabel {
+    font-size: 12px;
+  }
+
+  .navigateButton > * {
+    height: 18px;
+  }
+}
