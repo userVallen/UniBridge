@@ -70,3 +70,90 @@
   border: 1px solid rgba(222, 222, 222, 1);
   border-radius: 8px;
 }
+
+/* ------- Responsive Styles ------- */
+@media (max-width: 1200px) {
+  .contentContainer {
+    font-size: 15px;
+  }
+
+  .inputWrapper {
+    height: 2rem;
+    font-size: 13px;
+  }
+
+  .submitButton {
+    height: 2rem;
+    font-size: 15px;
+    border-radius: 8px;
+  }
+
+  .title {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 992px) {
+  .contentContainer {
+    font-size: 14px;
+  }
+
+  .inputWrapper {
+    height: 1.8rem;
+    font-size: 12px;
+  }
+
+  .submitButton {
+    height: 1.8rem;
+    font-size: 14px;
+  }
+
+  .title {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contentContainer {
+    font-size: 12px;
+  }
+
+  .inputWrapper {
+    height: 1.6rem;
+    font-size: 10px;
+    border-radius: 6px;
+    margin-top: 0.25rem;
+  }
+
+  .submitButton {
+    height: 1.6rem;
+    font-size: 12px;
+    border-radius: 6px;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .title {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 576px) {
+  .contentContainer {
+    font-size: 10px;
+  }
+
+  .inputWrapper {
+    height: 1.4rem;
+    font-size: 8px;
+  }
+
+  .submitButton {
+    height: 1.4rem;
+    font-size: 10px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+}

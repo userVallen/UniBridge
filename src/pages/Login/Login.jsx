@@ -3,6 +3,15 @@ import sharedStyles from "../../styles/AuthPage.module.css";
 import styles from "./Login.module.css";
 
 function Login() {
+  function showPassword() {
+    var x = document.getElementById("userPassword");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  }
+
   return (
     <div className={sharedStyles.app}>
       <div className={sharedStyles.window}>
@@ -32,12 +41,22 @@ function Login() {
                 Forgot your password?
               </a>
             </div>
-            <input className={sharedStyles.inputWrapper} type="text" required />
+            <input
+              className={sharedStyles.inputWrapper}
+              type="password"
+              id="userPassword"
+              required
+            />
+            <div className={styles.showPasswordToggle}>
+              <input type="checkbox" onClick={showPassword} />
+              <label>Show password</label>
+            </div>
           </form>
 
           <button className={sharedStyles.submitButton}>Login</button>
           <p
             className={`${sharedStyles.alternatePrompt} ${sharedStyles.paragraphWrapper}`}
+            style={{ color: "black" }}
           >
             Don't have an account?
             <span style={{ margin: "5px" }}>
