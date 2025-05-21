@@ -4,7 +4,7 @@
 }
 
 .navBar {
-  /* display: flex; */
+  display: flex;
   margin: 0.75em 2em;
   /* max-width: 100%;
   overflow-x: hidden; */
@@ -25,7 +25,7 @@
 
 /* ------- Profile Hover Effect ------- */
 .profile {
-  --s: 50px; /* the size of the image */
+  --s: auto; /* the size of the image */
   --b: 2px; /* the border thickness*/
   --g: 2px; /* the gap */
   --c: black; /* the color */
