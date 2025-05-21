@@ -1,5 +1,14 @@
+body,
+html {
+  overflow-y: auto;
+}
+
 body {
   margin: 0;
+}
+
+html {
+  overflow-y: scroll;
 }
 
 .container {

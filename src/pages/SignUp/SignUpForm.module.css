@@ -1,24 +1,28 @@
+.contentRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 4rem;
+}
+
 .formContainer {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: fit-content;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .formSubcontainer {
   display: flex;
+  flex: 1 1 300px;
   flex-direction: column;
+  align-items: center;
   width: fit-content;
 }
 
-.inputWrapper {
-  width: 22rem;
-}
-
-.left {
-  margin-right: 2rem;
-}
-
-.right {
-  margin-left: 2rem;
+.inputWrapper,
+.selectWrapper {
+  width: 25em;
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import { Container, Form } from "react-bootstrap";
 import sharedStyles from "../../styles/AuthPage.module.css";
 import styles from "./Login.module.css";
 
@@ -14,26 +15,32 @@ function Login() {
 
   return (
     <div className={sharedStyles.app}>
-      <div className={sharedStyles.window}>
-        <div className={sharedStyles.contentContainer}>
-          <h1>Login</h1>
-          <p className={sharedStyles.paragraphWrapper}>
-            Enter your email below to login to your account
-          </p>
+      <Container className={sharedStyles.window}>
+        <h1 className={sharedStyles.title}>Login</h1>
+        <p className={sharedStyles.paragraphWrapper}>
+          Enter your email below to login to your account
+        </p>
 
-          <form className={sharedStyles.formWrapper} action="">
-            <label htmlFor="">Email</label>
-            <input
+        <Form className={sharedStyles.formWrapper} action="">
+          <Form.Group>
+            <Form.Label htmlFor="" className={sharedStyles.formLabel}>
+              Email
+            </Form.Label>
+            <Form.Control
               className={sharedStyles.inputWrapper}
               type="text"
               placeholder="abc@dankook.ac.kr"
               required
             />
-          </form>
+          </Form.Group>
+        </Form>
 
-          <form className={sharedStyles.formWrapper} action="">
+        <Form className={sharedStyles.formWrapper} action="">
+          <Form.Group>
             <div className={sharedStyles.passwordLabel}>
-              <label htmlFor="">Password</label>
+              <Form.Label htmlFor="" className={sharedStyles.formLabel}>
+                Password
+              </Form.Label>
               <a
                 href="#"
                 className={`${styles.forgotPasswordPrompt} ${sharedStyles.anchorWrapper}`}
@@ -41,7 +48,7 @@ function Login() {
                 Forgot your password?
               </a>
             </div>
-            <input
+            <Form.Control
               className={sharedStyles.inputWrapper}
               type="password"
               id="userPassword"
@@ -51,22 +58,22 @@ function Login() {
               <input type="checkbox" onClick={showPassword} />
               <label>Show password</label>
             </div>
-          </form>
+          </Form.Group>
+        </Form>
 
-          <button className={sharedStyles.submitButton}>Login</button>
-          <p
-            className={`${sharedStyles.alternatePrompt} ${sharedStyles.paragraphWrapper}`}
-            style={{ color: "black" }}
-          >
-            Don't have an account?
-            <span style={{ margin: "5px" }}>
-              <a href="#" className={sharedStyles.anchorWrapper}>
-                Sign up
-              </a>
-            </span>
-          </p>
-        </div>
-      </div>
+        <button className={sharedStyles.submitButton}>Login</button>
+        <p
+          className={`${sharedStyles.alternatePrompt} ${sharedStyles.paragraphWrapper}`}
+          style={{ color: "black" }}
+        >
+          Don't have an account?
+          <span style={{ margin: "5px" }}>
+            <a href="/signup" className={sharedStyles.anchorWrapper}>
+              Sign up
+            </a>
+          </span>
+        </p>
+      </Container>
     </div>
   );
 }
