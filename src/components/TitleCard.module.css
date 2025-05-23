@@ -15,6 +15,7 @@
   .titleCard {
     font-size: 36px;
     padding: 2rem 2.5rem;
+    height: 16rem;
   }
 }
 
@@ -22,6 +23,7 @@
   .titleCard {
     font-size: 32px;
     padding: 1.5rem 2rem;
+    height: 14rem;
   }
 }
 
@@ -29,11 +31,13 @@
   .titleCard {
     font-size: 28px;
     padding: 1rem 1.5rem;
+    height: 11rem;
   }
 }
 
 @media (max-width: 576px) {
   .titleCard {
     font-size: 22px;
+    height: 9.5rem;
   }
 }
