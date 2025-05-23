@@ -57,6 +57,10 @@ html {
   font-style: normal;
 }
 
+.navbar-toggler {
+  border: none;
+}
+
 .open-sans {
   font-family: "Open Sans", sans-serif;
   font-optical-sizing: auto;
