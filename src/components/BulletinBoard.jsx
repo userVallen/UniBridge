@@ -18,14 +18,18 @@ function BulletinBoard({ entries, setEntries }) {
 
   return (
     <div className={styles.boardContainer}>
-      <BulletinEntry
-        number="No."
-        department="Department"
-        title="Title"
-        admin="Admin"
-        date="Date"
-        isTitle={true}
-      />
+      <div className={styles.titleRow}>
+        <BulletinEntry
+          className={styles.titleRow}
+          number="No."
+          department="Department"
+          title="Title"
+          admin="Admin"
+          date="Date"
+          isTitle={true}
+        />
+      </div>
+
       {visibleEntries.map((entry, index) => {
         return (
           <BulletinEntry
@@ -35,7 +39,6 @@ function BulletinBoard({ entries, setEntries }) {
             title={entry.title}
             admin={entry.admin}
             date={entry.date}
-            bold={false}
           />
         );
       })}
