@@ -1,11 +1,17 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { ToggleButtonGroup, ToggleButton } from "react-bootstrap";
 import { useState } from "react";
 import globe from "../assets/globe.png";
 import styles from "./LanguageToggle.module.css";
 
 function LanguageToggle() {
+  const { i18n } = useTranslation();
   const [language, setLanguage] = useState("ENG");
+
+  const handleLanguageChange = (lng) => {
+    i18n.changeLanguage(lng);
+  };
 
   return (
     <>
@@ -23,6 +29,7 @@ function LanguageToggle() {
           variant={language === "ENG" ? "secondary" : "light"}
           size="sm"
           className="rounded-pill"
+          onClick={() => handleLanguageChange("en")}
         >
           ENG
         </ToggleButton>
@@ -32,6 +39,7 @@ function LanguageToggle() {
           variant={language === "KOR" ? "secondary" : "light"}
           size="sm"
           className="rounded-pill"
+          onClick={() => handleLanguageChange("ko")}
         >
           KOR
         </ToggleButton>
