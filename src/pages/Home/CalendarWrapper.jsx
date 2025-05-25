@@ -1,9 +1,13 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import Container from "react-bootstrap/Container";
 import ReactCalendar from "react-calendar";
 import Navigation from "./Navigation";
 
 function CalendarWrapper() {
+  const { i18n } = useTranslation();
+  const currentLang = i18n.language;
+  const locale = currentLang === "ko" ? "ko-KR" : "en-US";
   const [startDate, setStartDate] = useState(new Date());
 
   function handleNext() {
@@ -33,6 +37,10 @@ function CalendarWrapper() {
       />
       <Container>
         <ReactCalendar
+          locale={locale}
+          formatDay={(locale, date) => date.getDate()}
+          className={`lang-${i18n.language}`}
+          calendarType="gregory"
           showNavigation={false}
           activeStartDate={startDate}
           onActiveStartDateChange={setStartDate}

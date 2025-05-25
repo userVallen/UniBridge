@@ -69,6 +69,10 @@ html {
   font-variation-settings: "wdth" 100;
 }
 
+.rounded-pill .btn {
+  font-family: "Open Sans", sans-serif;
+}
+
 /* ------- Navigation Link Hover Effect ------- */
 .navbar-nav > .nav-link {
   position: relative;

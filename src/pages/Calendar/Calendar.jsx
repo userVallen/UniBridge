@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import ReactCalendar from "react-calendar";
 import { Row, Col, Container } from "react-bootstrap";
 import NavigationBar from "../../components/NavigationBar";
@@ -8,6 +9,9 @@ import "../../styles/calendar-page.css";
 import styles from "./Calendar.module.css";
 
 function Calendar() {
+  const { i18n } = useTranslation();
+  const currentLang = i18n.language;
+  const locale = currentLang === "ko" ? "ko-KR" : "en-US";
   const [startDate, setStartDate] = useState(new Date());
 
   function handleNext() {
@@ -41,6 +45,10 @@ function Calendar() {
                 onClickLeft={handlePrev}
               />
               <ReactCalendar
+                locale={locale}
+                formatDay={(locale, date) => date.getDate()}
+                className={`lang-${i18n.language}`}
+                calendarType="gregory"
                 showNavigation={false}
                 activeStartDate={startDate}
                 onActiveStartDateChange={setStartDate}

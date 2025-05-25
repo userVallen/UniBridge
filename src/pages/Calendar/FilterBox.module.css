@@ -16,7 +16,7 @@
 .filterContainer {
   display: flex;
   flex: 1;
-  justify-content: center;
+  justify-content: start;
   align-items: start;
 }
 

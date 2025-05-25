@@ -1,9 +1,49 @@
 {
+  "bulletin": {
+    "number": "No.",
+    "department": "Department",
+    "title": "Title",
+    "admin": "Admin",
+    "date": "Date"
+  },
+
+  "calendar": {
+    "firstMonth": "January",
+    "secondMonth": "February",
+    "thirdMonth": "March",
+    "fourthMonth": "April",
+    "fifthMonth": "May",
+    "sixthMonth": "June",
+    "seventhMonth": "July",
+    "eighthMonth": "August",
+    "ninthMonth": "September",
+    "tenthMonth": "October",
+    "eleventhMonth": "November",
+    "twelfthMonth": "December"
+  },
+
+  "community": {
+    "title": "Community"
+  },
+
+  "filter": {
+    "mse": "Mobile Systems Engineering",
+    "iba": "Global Business Administration",
+    "bio": "Biomaterial Convergence Engineering",
+    "kor": "Korean Studies",
+    "art": "Performing Arts",
+    "edu": "Global Basic Education"
+  },
+
   "home": {
     "home": "Home",
     "community": "Community",
     "notice": "Notice",
     "buddyMatching": "Buddy Matching",
     "calendar": "Calendar"
+  },
+
+  "notice": {
+    "title": "Notice"
   }
 }

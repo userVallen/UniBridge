@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import Card from "react-bootstrap/Card";
 import { Row, Col, Container } from "react-bootstrap";
 import CalendarWrapper from "./CalendarWrapper";
@@ -11,6 +12,8 @@ import "../../styles/calendar-widget.css";
 import styles from "./Home.module.css";
 
 function Home() {
+  const { t } = useTranslation();
+
   // We need another page/small window to input events (set the title, date, etc.)
   const [noticeEvents, setNoticeEvent] = useState([
     { title: "Event Title 1", date: "1 May 2025", place: "Room 102" },
@@ -36,14 +39,14 @@ function Home() {
           <Col lg={6}>
             <CardWidget
               link="#"
-              title="Notice"
+              title={t("home.notice")}
               img={megaphone}
               alt="notice icon"
               entries={noticeEvents}
             />
             <CardWidget
               link="#"
-              title="Community"
+              title={t("home.community")}
               img={chatBubble}
               alt="community icon"
               entries={communityEvents}

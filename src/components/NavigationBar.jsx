@@ -7,7 +7,8 @@ import profile from "../assets/profile.png";
 import styles from "./NavigationBar.module.css";
 
 function NavigationBar() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
+
   return (
     <Navbar expand="md" className={`bg-transparent ${styles.navBar}`}>
       <Container fluid className="d-flex align-items-center gap-4">

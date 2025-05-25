@@ -1,9 +1,49 @@
 {
+  "bulletin": {
+    "number": "번호",
+    "department": "학과",
+    "title": "제목",
+    "admin": "등록자",
+    "date": "등록일"
+  },
+
+  "calendar": {
+    "firstMonth": "1월",
+    "secondMonth": "2월",
+    "thirdMonth": "3월",
+    "fourthMonth": "4월",
+    "fifthMonth": "5월",
+    "sixthMonth": "6월",
+    "seventhMonth": "7월",
+    "eighthMonth": "8월",
+    "ninthMonth": "9월",
+    "tenthMonth": "10월",
+    "eleventhMonth": "11월",
+    "twelfthMonth": "12월"
+  },
+
+  "community": {
+    "title": "커뮤니티"
+  },
+
+  "filter": {
+    "mse": "모바일시스템공학과",
+    "iba": "국제경영학과",
+    "bio": "바이오소재융합공학과",
+    "kor": "한국학과",
+    "art": "연기영상예술학과",
+    "edu": "글로벌기초교육학부"
+  },
+
   "home": {
     "home": "홈",
     "community": "커뮤니티",
     "notice": "공지",
     "buddyMatching": "버디 매칭",
     "calendar": "캘린더"
+  },
+
+  "notice": {
+    "title": "공지"
   }
 }

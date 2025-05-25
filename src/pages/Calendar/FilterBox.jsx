@@ -1,16 +1,19 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import styles from "./FilterBox.module.css";
 
 function FilterBox() {
+  const { t } = useTranslation();
+
   const majorList = [
-    "Mobile Systems Engineering",
-    "Global Business Administration",
-    "Biomaterial Convergence Engineering",
-    "Korean Studies",
-    "Performing Arts",
-    "Global Basic Education",
-    "...brown...",
-    "...cream...",
+    t("filter.mse"),
+    t("filter.iba"),
+    t("filter.bio"),
+    t("filter.kor"),
+    t("filter.art"),
+    t("filter.edu"),
+    // "...brown...",
+    // "...cream...",
   ];
 
   const colorList = [
