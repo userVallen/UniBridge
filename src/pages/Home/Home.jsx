@@ -3,12 +3,14 @@ import { useTranslation } from "react-i18next";
 import Card from "react-bootstrap/Card";
 import { Row, Col, Container } from "react-bootstrap";
 import CalendarWrapper from "./CalendarWrapper";
+import FullCalendarWrapper from "./FullCalendarWrapper";
 import CardWidget from "./CardWidget";
 import NavigationBar from "../../components/NavigationBar";
 import chatBubble from "../../assets/chat-bubble.png";
 import megaphone from "../../assets/megaphone.png";
 import "react-calendar/dist/Calendar.css";
 import "../../styles/calendar-widget.css";
+import "../../styles/full-calendar-widget.css";
 import styles from "./Home.module.css";
 
 function Home() {
@@ -32,7 +34,7 @@ function Home() {
           <Col lg={6} className="mb-3">
             <Card className="calendar-widget-container border-0">
               <Card className="calendar-container">
-                <CalendarWrapper />
+                <FullCalendarWrapper />
               </Card>
             </Card>
           </Col>
