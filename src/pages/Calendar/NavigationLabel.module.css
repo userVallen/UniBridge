@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 4px;
+  margin-bottom: 0.8em;
 }
 
 .navigateButton {
@@ -24,11 +24,26 @@
   font-weight: bold;
   text-transform: uppercase;
   margin: 0;
+  font-size: 18px;
+}
+
+.todayButton {
+  font-family: "Inter", sans-serif;
+  background-color: #39496f;
+  color: white;
+  border-radius: 8px;
+  border-color: transparent;
+  margin-left: 1em;
+  margin-right: 1em;
 }
 
 /* ------- Responsive Styles ------- */
 @media (max-width: 992px) {
   .timeLabel {
+    font-size: 16px;
+  }
+
+  .todayButton {
     font-size: 14px;
   }
 
@@ -39,6 +54,10 @@
 
 @media (max-width: 768px) {
   .timeLabel {
+    font-size: 14px;
+  }
+
+  .todayButton {
     font-size: 12px;
   }
 

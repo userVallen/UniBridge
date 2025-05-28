@@ -1,4 +1,3 @@
-import React from "react";
 import { Row, Col, ListGroup } from "react-bootstrap";
 import styles from "./CardEntry.module.css";
 

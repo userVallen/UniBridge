@@ -1,4 +1,3 @@
-import React from "react";
 import { Container, Form } from "react-bootstrap";
 import sharedStyles from "../../styles/AuthPage.module.css";
 import styles from "./Login.module.css";

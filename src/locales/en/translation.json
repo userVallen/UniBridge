@@ -19,7 +19,8 @@
     "ninthMonth": "September",
     "tenthMonth": "October",
     "eleventhMonth": "November",
-    "twelfthMonth": "December"
+    "twelfthMonth": "December",
+    "today": "Today"
   },
 
   "community": {

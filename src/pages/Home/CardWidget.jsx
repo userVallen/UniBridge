@@ -1,4 +1,3 @@
-import React from "react";
 import { Card, ListGroup } from "react-bootstrap";
 import CardEntry from "./CardEntry";
 import styles from "./CardWidget.module.css";

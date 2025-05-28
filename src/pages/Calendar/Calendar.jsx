@@ -1,35 +1,42 @@
-import React, { useState } from "react";
+import { useContext, useRef } from "react";
 import { useTranslation } from "react-i18next";
-import ReactCalendar from "react-calendar";
 import { Row, Col, Container } from "react-bootstrap";
+import FullCalendar from "@fullcalendar/react";
+import dayGridPlugin from "@fullcalendar/daygrid";
+import interactionPlugin from "@fullcalendar/interaction";
+import allLocales from "@fullcalendar/core/locales-all";
 import NavigationBar from "../../components/NavigationBar";
 import NavigationLabel from "./NavigationLabel";
 import FilterBox from "./FilterBox";
 import "../../styles/calendar-page.css";
 import styles from "./Calendar.module.css";
+import { SharedEventsContext } from "../../contexts/SharedEventsContext";
+import { majorColorClassMap } from "../../constants/stylesMap";
 
 function Calendar() {
+  const startDate = new Date();
+  const calendarRef = useRef(null);
   const { i18n } = useTranslation();
-  const currentLang = i18n.language;
-  const locale = currentLang === "ko" ? "ko-KR" : "en-US";
-  const [startDate, setStartDate] = useState(new Date());
+  const { sharedEvents, setSharedEvent } = useContext(SharedEventsContext);
 
-  function handleNext() {
-    const nextMonth = new Date(
-      startDate.getFullYear(),
-      startDate.getMonth() + 1,
-      1
-    );
-    setStartDate(nextMonth);
-  }
+  const handlePrev = () => {
+    const calendarApi = calendarRef.current.getApi();
+    calendarApi.prev();
+  };
 
-  function handlePrev() {
-    const prevMonth = new Date(
-      startDate.getFullYear(),
-      startDate.getMonth() - 1,
-      1
-    );
-    setStartDate(prevMonth);
+  const handleNext = () => {
+    const calendarApi = calendarRef.current.getApi();
+    calendarApi.next();
+  };
+
+  const handleToday = () => {
+    const calendarApi = calendarRef.current.getApi();
+    calendarApi.today();
+  };
+
+  // Remove the '일' from each date in KO locale
+  function renderDayCellContent(arg) {
+    return { html: `<div>${arg.date.getDate()}</div>` };
   }
 
   return (
@@ -41,17 +48,25 @@ function Calendar() {
             <div className="calendar-page-container">
               <NavigationLabel
                 startDate={startDate}
+                onClickToday={handleToday}
                 onClickRight={handleNext}
                 onClickLeft={handlePrev}
               />
-              <ReactCalendar
-                locale={locale}
-                formatDay={(locale, date) => date.getDate()}
-                className={`lang-${i18n.language}`}
-                calendarType="gregory"
-                showNavigation={false}
-                activeStartDate={startDate}
-                onActiveStartDateChange={setStartDate}
+              <FullCalendar
+                plugins={[dayGridPlugin, interactionPlugin]}
+                initialView="dayGridMonth"
+                events={sharedEvents}
+                headerToolbar={false}
+                ref={calendarRef}
+                height="auto"
+                locales={allLocales}
+                locale={i18n.language}
+                dayCellContent={renderDayCellContent}
+                eventClassNames={(arg) => {
+                  const major = arg.event.extendedProps.major;
+                  const colorClass = majorColorClassMap[major];
+                  return [`event-${colorClass}`];
+                }}
               />
             </div>
           </Col>

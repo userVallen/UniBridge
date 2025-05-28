@@ -1,15 +1,17 @@
-import React, { useRef } from "react";
-import Navigation from "./Navigation";
+import { useContext, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import allLocales from "@fullcalendar/core/locales-all";
-import { useTranslation } from "react-i18next";
+import Navigation from "./Navigation";
+import { SharedEventsContext } from "../../contexts/SharedEventsContext";
 
 function FullCalendarWrapper() {
   const startDate = new Date();
   const calendarRef = useRef(null);
   const { i18n } = useTranslation();
+  const { sharedEvents, setSharedEvent } = useContext(SharedEventsContext);
 
   const handlePrev = () => {
     const calendarApi = calendarRef.current.getApi();
@@ -26,11 +28,6 @@ function FullCalendarWrapper() {
     return { html: `<div>${arg.date.getDate()}</div>` };
   }
 
-  const eventList = [
-    { title: "event 1", date: "2025-05-21" },
-    { title: "event 2", start: "2025-05-29", end: "2025-05-31" }, // The event ends **before** this date (exclusive)
-  ];
-
   return (
     <>
       <Navigation
@@ -42,7 +39,7 @@ function FullCalendarWrapper() {
         <FullCalendar
           plugins={[dayGridPlugin, interactionPlugin]}
           initialView="dayGridMonth"
-          events={eventList}
+          events={sharedEvents}
           headerToolbar={false}
           ref={calendarRef}
           height="auto"

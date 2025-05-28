@@ -73,6 +73,39 @@ html {
   font-family: "Open Sans", sans-serif;
 }
 
+/* Locale font */
+.lang-ko .fc-col-header-cell-cushion {
+  font-weight: 600;
+  font-size: 0.9em;
+}
+
+.lang-en .fc-col-header-cell-cushion {
+  font-size: 0.85em;
+}
+
+/* Date number */
+.fc .fc-daygrid-day .fc-daygrid-day-number > div {
+  display: flex;
+  width: 1.7em;
+  height: 1.7em;
+  align-items: center;
+  margin-left: 0.3em;
+}
+
+/* Today's date */
+.fc .fc-daygrid-day.fc-day-today {
+  background-color: transparent;
+}
+
+.fc .fc-daygrid-day.fc-day-today .fc-daygrid-day-number > div {
+  background-color: red;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  margin-left: 0;
+}
+
 /* ------- Navigation Link Hover Effect ------- */
 .navbar-nav > .nav-link {
   position: relative;

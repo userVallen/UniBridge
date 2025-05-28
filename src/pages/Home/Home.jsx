@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import Card from "react-bootstrap/Card";
 import { Row, Col, Container } from "react-bootstrap";
-import CalendarWrapper from "./CalendarWrapper";
 import FullCalendarWrapper from "./FullCalendarWrapper";
 import CardWidget from "./CardWidget";
 import NavigationBar from "../../components/NavigationBar";
@@ -10,7 +9,6 @@ import chatBubble from "../../assets/chat-bubble.png";
 import megaphone from "../../assets/megaphone.png";
 import "react-calendar/dist/Calendar.css";
 import "../../styles/calendar-widget.css";
-import "../../styles/full-calendar-widget.css";
 import styles from "./Home.module.css";
 
 function Home() {
@@ -40,14 +38,14 @@ function Home() {
           </Col>
           <Col lg={6}>
             <CardWidget
-              link="#"
+              link="/notice"
               title={t("home.notice")}
               img={megaphone}
               alt="notice icon"
               entries={noticeEvents}
             />
             <CardWidget
-              link="#"
+              link="/community"
               title={t("home.community")}
               img={chatBubble}
               alt="community icon"
