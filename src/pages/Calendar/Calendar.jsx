@@ -11,13 +11,13 @@ import FilterBox from "./FilterBox";
 import "../../styles/calendar-page.css";
 import styles from "./Calendar.module.css";
 import { SharedEventsContext } from "../../contexts/SharedEventsContext";
-import { majorColorClassMap } from "../../constants/stylesMap";
 
 function Calendar() {
   const [startDate, setStartDate] = useState(new Date());
   const calendarRef = useRef(null);
   const { i18n } = useTranslation();
   const { sharedEvents, setSharedEvent } = useContext(SharedEventsContext);
+  const [selectedMajors, setSelectedMajors] = useState([]);
 
   const handlePrev = () => {
     const prevMonth = new Date(
@@ -76,17 +76,34 @@ function Calendar() {
                 locales={allLocales}
                 locale={i18n.language}
                 dayCellContent={renderDayCellContent}
-                eventClassNames={(arg) => {
-                  const major = arg.event.extendedProps.major;
-                  const colorClass = majorColorClassMap[major];
-                  return [`event-${colorClass}`];
+                selectable={true}
+                editable={true} // Should be editable ***strictly for admins*** (editable for all for now)
+                eventDidMount={(info) => {
+                  const eventMajor = info.event.extendedProps.major;
+
+                  // If no filters are applied, display all majors
+                  if (selectedMajors.length === 0) {
+                    info.el.style.display = "";
+                    return;
+                  }
+
+                  // If there is at least one major applied, display filtered majors only
+                  if (selectedMajors.includes(eventMajor)) {
+                    info.el.style.display = "";
+                  } else {
+                    info.el.style.display = "none";
+                  }
                 }}
+                key={selectedMajors.join(",")}
               />
             </div>
           </Col>
 
           <Col lg={3} md={3} sm={12}>
-            <FilterBox />
+            <FilterBox
+              selectedMajors={selectedMajors}
+              setSelectedMajors={setSelectedMajors}
+            />
           </Col>
         </Row>
       </Container>
