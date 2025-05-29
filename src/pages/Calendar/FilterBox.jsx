@@ -21,9 +21,9 @@ function FilterBox({ selectedMajors, setSelectedMajors }) {
                 onChange={() => {
                   if (selectedMajors.includes(major)) {
                     setSelectedMajors(
-                      selectedMajors.filter((majorToDeselect) => {
-                        majorToDeselect !== major;
-                      })
+                      selectedMajors.filter(
+                        (majorToDeselect) => majorToDeselect !== major
+                      )
                     );
                   } else {
                     setSelectedMajors([...selectedMajors, major]);
