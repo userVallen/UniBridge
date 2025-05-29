@@ -1,4 +1,4 @@
-import { useContext, useRef } from "react";
+import { useContext, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Row, Col, Container } from "react-bootstrap";
 import FullCalendar from "@fullcalendar/react";
@@ -14,17 +14,31 @@ import { SharedEventsContext } from "../../contexts/SharedEventsContext";
 import { majorColorClassMap } from "../../constants/stylesMap";
 
 function Calendar() {
-  const startDate = new Date();
+  const [startDate, setStartDate] = useState(new Date());
   const calendarRef = useRef(null);
   const { i18n } = useTranslation();
   const { sharedEvents, setSharedEvent } = useContext(SharedEventsContext);
 
   const handlePrev = () => {
+    const prevMonth = new Date(
+      startDate.getFullYear(),
+      startDate.getMonth() - 1,
+      1
+    );
+    setStartDate(prevMonth);
+
     const calendarApi = calendarRef.current.getApi();
     calendarApi.prev();
   };
 
   const handleNext = () => {
+    const nextMonth = new Date(
+      startDate.getFullYear(),
+      startDate.getMonth() + 1,
+      1
+    );
+    setStartDate(nextMonth);
+
     const calendarApi = calendarRef.current.getApi();
     calendarApi.next();
   };

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import Card from "react-bootstrap/Card";
 import { Row, Col, Container } from "react-bootstrap";
-import FullCalendarWrapper from "./FullCalendarWrapper";
+import CalendarWrapper from "./CalendarWrapper";
 import CardWidget from "./CardWidget";
 import NavigationBar from "../../components/NavigationBar";
 import chatBubble from "../../assets/chat-bubble.png";
@@ -32,7 +32,7 @@ function Home() {
           <Col lg={6} className="mb-3">
             <Card className="calendar-widget-container border-0">
               <Card className="calendar-container">
-                <FullCalendarWrapper />
+                <CalendarWrapper />
               </Card>
             </Card>
           </Col>

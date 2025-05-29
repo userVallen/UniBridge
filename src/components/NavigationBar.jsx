@@ -1,4 +1,3 @@
-import React from "react";
 import { useTranslation } from "react-i18next";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import LanguageToggle from "./LanguageToggle";
