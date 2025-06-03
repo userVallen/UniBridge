@@ -6,14 +6,24 @@ export const SharedEventsContext = createContext();
 export const SharedEventProvider = ({ children }) => {
   const rawEvents = [
     {
-      title: "event 1",
-      date: "2025-05-21",
+      title: "event 1-1",
+      date: "2025-06-21",
+      place: "place 1",
       major: "mse",
     },
     {
+      title: "event 1-2",
+      start: "2025-06-21T18:00:00",
+      end: "2025-06-21T20:00:00",
+      place: "place 1",
+      major: "edu",
+      allDay: "false", // has to be added to timed single-day events
+    },
+    {
       title: "event 2",
-      start: "2025-05-29",
-      end: "2025-05-31", // The event ends **before** this date (exclusive)
+      start: "2025-06-29T10:00:00",
+      end: "2025-06-30T23:00:00",
+      place: "place 2",
       major: "iba",
     },
   ];

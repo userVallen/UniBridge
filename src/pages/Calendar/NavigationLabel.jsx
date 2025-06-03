@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import { monthList } from "../../constants/stylesMap";
 import styles from "./NavigationLabel.module.css";
 
 function NavigationLabel({
@@ -12,22 +13,7 @@ function NavigationLabel({
   const { t, i18n } = useTranslation();
   const currentLang = i18n.language;
 
-  const monthList = [
-    t("calendar.firstMonth"),
-    t("calendar.secondMonth"),
-    t("calendar.thirdMonth"),
-    t("calendar.fourthMonth"),
-    t("calendar.fifthMonth"),
-    t("calendar.sixthMonth"),
-    t("calendar.seventhMonth"),
-    t("calendar.eighthMonth"),
-    t("calendar.ninthMonth"),
-    t("calendar.tenthMonth"),
-    t("calendar.eleventhMonth"),
-    t("calendar.twelfthMonth"),
-  ];
-
-  const currentMonth = monthList[startDate.getMonth()];
+  const currentMonth = t(`calendar.${monthList[startDate.getMonth()]}`);
   const currentYear = startDate.getFullYear();
 
   const formatMonthYear = () => {

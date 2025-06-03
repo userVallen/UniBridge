@@ -1,0 +1,45 @@
+.date {
+  margin-bottom: 0.5em;
+}
+
+.dayEventContainer {
+  font-family: "Inter", sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.eventCard {
+  display: flex;
+  background-color: #d1d0cd; /* placeholder */
+  border-radius: 8px;
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
+  padding-top: 0.75em;
+  padding-bottom: 0.75em;
+}
+
+.eventContainer {
+  flex: 2;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5em;
+  border: 1px solid black;
+  border-right-width: 0px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
+}
+
+.placeContainer {
+  font-size: 0.75em;
+}
+
+.timeContainer {
+  flex: 1;
+  align-self: center;
+  text-align: center;
+  font-weight: 700;
+}
+
+.titleContainer {
+  font-weight: 700;
+}

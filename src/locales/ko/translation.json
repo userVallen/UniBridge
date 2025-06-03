@@ -20,6 +20,13 @@
     "tenthMonth": "10월",
     "eleventhMonth": "11월",
     "twelfthMonth": "12월",
+    "firstDay": "월",
+    "secondDay": "화",
+    "thirdDay": "수",
+    "fourthDay": "목",
+    "fifthDay": "금",
+    "sixthDay": "토",
+    "seventhDay": "일",
     "today": "오늘"
   },
 

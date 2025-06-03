@@ -1,3 +1,33 @@
+export const monthList = [
+  "firstMonth",
+  "secondMonth",
+  "thirdMonth",
+  "fourthMonth",
+  "fifthMonth",
+  "sixthMonth",
+  "seventhMonth",
+  "eighthMonth",
+  "ninthMonth",
+  "tenthMonth",
+  "eleventhMonth",
+  "twelfthMonth",
+];
+
+export const dayList = [
+  "firstDay",
+  "secondDay",
+  "thirdDay",
+  "fourthDay",
+  "fifthDay",
+  "sixthDay",
+  "seventhDay",
+  "eighthDay",
+  "ninthDay",
+  "tenthDay",
+  "eleventhDay",
+  "twelfthDay",
+];
+
 export const majorList = ["mse", "iba", "bio", "kor", "art", "edu"];
 
 export const colorSetList = [

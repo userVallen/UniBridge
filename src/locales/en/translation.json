@@ -20,6 +20,13 @@
     "tenthMonth": "October",
     "eleventhMonth": "November",
     "twelfthMonth": "December",
+    "firstDay": "Monday",
+    "secondDay": "Tuesday",
+    "thirdDay": "Wednesday",
+    "fourthDay": "Thursday",
+    "fifthDay": "Friday",
+    "sixthDay": "Saturday",
+    "seventhDay": "Sunday",
     "today": "Today"
   },
 

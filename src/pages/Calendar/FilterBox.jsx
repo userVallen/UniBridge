@@ -8,6 +8,7 @@ function FilterBox({ selectedMajors, setSelectedMajors }) {
   return (
     <div className={styles.filterContainer}>
       <div className={styles.filterBox}>
+        {/* display major filters */}
         {majorList.map((major, index) => {
           const checkboxId = `major-checkbox-${index}`;
           return (
@@ -18,6 +19,7 @@ function FilterBox({ selectedMajors, setSelectedMajors }) {
                 type="checkbox"
                 value={t(`filter.${major}`)}
                 checked={selectedMajors.includes(major)}
+                /* select + deselect filter */
                 onChange={() => {
                   if (selectedMajors.includes(major)) {
                     setSelectedMajors(
