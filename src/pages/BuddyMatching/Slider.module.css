@@ -1,0 +1,64 @@
+.cardWrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+.scrollContainer {
+  display: flex;
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow-x: auto;
+
+  /* Hide scrollbar */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.sliderContainer {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  max-width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.sliderContainer > button {
+  color: black;
+  background-color: transparent;
+  border: none;
+}
+
+/* Hide scrollbar */
+.scrollContainer::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* ------- Responsive Styles ------- */
+@media (max-width: 1400px) {
+  .sliderContainer > button > * {
+    height: 0.9em;
+    width: auto;
+  }
+}
+
+@media (max-width: 1200px) {
+  .sliderContainer > button > * {
+    height: 0.7em;
+    width: auto;
+  }
+}
+
+@media (max-width: 992px) {
+  .sliderContainer > button > * {
+    height: 0.5em;
+    width: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .sliderContainer > button > * {
+    height: 0.4em;
+    width: auto;
+  }
+}

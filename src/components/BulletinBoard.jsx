@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import BulletinEntry from "./BulletinEntry";
 import styles from "./BulletinBoard.module.css";
@@ -8,7 +7,7 @@ function BulletinBoard({ entries, setEntries }) {
   const { t } = useTranslation();
 
   var visibleEntries = [...entries];
-  while (visibleEntries.length < 9) {
+  while (visibleEntries.length < 10) {
     visibleEntries.push({
       key: "",
       number: "",

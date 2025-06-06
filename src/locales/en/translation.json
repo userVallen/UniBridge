@@ -1,4 +1,16 @@
 {
+  "buddy": {
+    "monthly": "My Buddy of the Month",
+    "recommended": "Recommended Buddy",
+    "sent": "Requests Sent",
+    "received": "Pending Requests",
+    "chat": "Chat",
+    "request": "Request",
+    "cancel": "Cancel",
+    "accept": "Accept",
+    "decline": "Decline"
+  },
+
   "bulletin": {
     "number": "No.",
     "department": "Department",
@@ -48,7 +60,8 @@
     "community": "Community",
     "notice": "Notice",
     "buddyMatching": "Buddy Matching",
-    "calendar": "Calendar"
+    "calendar": "Calendar",
+    "chat": "Chat"
   },
 
   "notice": {

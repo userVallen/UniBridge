@@ -22,9 +22,10 @@ export const SharedEventProvider = ({ children }) => {
     {
       title: "event 2",
       start: "2025-06-29T10:00:00",
-      end: "2025-06-30T23:00:00",
+      end: "2025-07-01T23:00:00",
       place: "place 2",
       major: "iba",
+      allDay: "true", // has to be added to timed multiple-day events
     },
   ];
 

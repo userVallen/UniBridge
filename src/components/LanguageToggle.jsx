@@ -1,4 +1,3 @@
-import React from "react";
 import { useTranslation } from "react-i18next";
 import { ToggleButtonGroup, ToggleButton } from "react-bootstrap";
 import globe from "../assets/globe.png";

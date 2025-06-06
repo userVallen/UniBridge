@@ -1,4 +1,16 @@
 {
+  "buddy": {
+    "monthly": "이달의 나의 버디",
+    "recommended": "추천 버디",
+    "sent": "내가 추가한 버디",
+    "received": "날 추가한 버디",
+    "chat": "채팅",
+    "request": "신청",
+    "cancel": "취소하기",
+    "accept": "수락",
+    "decline": "거절"
+  },
+
   "bulletin": {
     "number": "번호",
     "department": "학과",
@@ -48,7 +60,8 @@
     "community": "커뮤니티",
     "notice": "공지",
     "buddyMatching": "버디 매칭",
-    "calendar": "캘린더"
+    "calendar": "캘린더",
+    "chat": "채팅"
   },
 
   "notice": {

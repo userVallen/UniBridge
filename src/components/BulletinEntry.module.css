@@ -22,11 +22,11 @@
 }
 
 .entryDepartment {
-  flex: 6;
+  flex: 4;
 }
 
 .entryTitle {
-  flex: 5;
+  flex: 6;
 }
 
 .entryAdmin {

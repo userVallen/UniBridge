@@ -23,8 +23,11 @@ function NavigationBar() {
               <Nav.Link href="/">{t("home.home")}</Nav.Link>
               <Nav.Link href="/community">{t("home.community")}</Nav.Link>
               <Nav.Link href="/notice">{t("home.notice")}</Nav.Link>
-              <Nav.Link href="#">{t("home.buddyMatching")}</Nav.Link>
               <Nav.Link href="/calendar">{t("home.calendar")}</Nav.Link>
+              <Nav.Link href="/buddyMatching">
+                {t("home.buddyMatching")}
+              </Nav.Link>
+              <Nav.Link>{t("home.chat")}</Nav.Link>
 
               <span style={{ display: "flex", alignItems: "center" }}>
                 <LanguageToggle />

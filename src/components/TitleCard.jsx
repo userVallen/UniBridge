@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./TitleCard.module.css";
 
 function TitleCard(props) {
