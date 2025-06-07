@@ -89,7 +89,7 @@ html {
   width: 1.7em;
   height: 1.7em;
   align-items: center;
-  margin-left: 0.3em;
+  justify-content: center;
 }
 
 /* Today's date */
