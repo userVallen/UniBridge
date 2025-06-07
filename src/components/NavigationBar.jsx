@@ -27,7 +27,7 @@ function NavigationBar() {
               <Nav.Link href="/buddyMatching">
                 {t("home.buddyMatching")}
               </Nav.Link>
-              <Nav.Link>{t("home.chat")}</Nav.Link>
+              <Nav.Link href="/chat">{t("home.chat")}</Nav.Link>
 
               <span style={{ display: "flex", alignItems: "center" }}>
                 <LanguageToggle />

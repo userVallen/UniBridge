@@ -8,6 +8,7 @@ import Login from "./pages/Login/Login";
 import Notice from "./pages/Notice/Notice";
 import SignUp from "./pages/SignUp/SignUp";
 import BuddyMatching from "./pages/BuddyMatching/BuddyMatching";
+import Chat from "./pages/Chat/Chat";
 
 export default function App() {
   return (
@@ -18,10 +19,11 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
-            <Route path="/calendar" element={<Calendar />} />
             <Route path="/community" element={<Community />} />
             <Route path="/notice" element={<Notice />} />
+            <Route path="/calendar" element={<Calendar />} />
             <Route path="/buddyMatching" element={<BuddyMatching />} />
+            <Route path="/chat" element={<Chat />} />
           </Routes>
         </Router>
       </SharedEventProvider>
