@@ -1,14 +1,35 @@
+import { useState } from "react";
 import { Container, Form } from "react-bootstrap";
+import { loginUser } from "../../api/loginApi";
+import { useNavigate } from "react-router-dom";
 import sharedStyles from "../../styles/AuthPage.module.css";
 import styles from "./Login.module.css";
 
 function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
+
   function showPassword() {
     var x = document.getElementById("userPassword");
     if (x.type === "password") {
       x.type = "text";
     } else {
       x.type = "password";
+    }
+  }
+
+  async function handleLogin(e) {
+    e.preventDefault();
+    try {
+      const data = await loginUser(email, password);
+      console.log("Login successful:", data);
+      // TODO: save token or navigate to another page
+      navigate("/");
+    } catch (err) {
+      console.error("Login failed:", err);
+      // Optionally show error message to user
     }
   }
 
@@ -20,7 +41,7 @@ function Login() {
           Enter your email below to login to your account
         </p>
 
-        <Form className={sharedStyles.formWrapper} action="">
+        <Form className={sharedStyles.formWrapper} onSubmit={handleLogin}>
           <Form.Group>
             <Form.Label htmlFor="" className={sharedStyles.formLabel}>
               Email
@@ -29,12 +50,12 @@ function Login() {
               className={sharedStyles.inputWrapper}
               type="text"
               placeholder="abc@dankook.ac.kr"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
           </Form.Group>
-        </Form>
 
-        <Form className={sharedStyles.formWrapper} action="">
           <Form.Group>
             <div className={sharedStyles.passwordLabel}>
               <Form.Label htmlFor="" className={sharedStyles.formLabel}>
@@ -51,6 +72,8 @@ function Login() {
               className={sharedStyles.inputWrapper}
               type="password"
               id="userPassword"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               required
             />
             <div className={styles.showPasswordToggle}>
@@ -58,9 +81,10 @@ function Login() {
               <label>Show password</label>
             </div>
           </Form.Group>
+
+          <button className={sharedStyles.submitButton}>Login</button>
         </Form>
 
-        <button className={sharedStyles.submitButton}>Login</button>
         <p
           className={`${sharedStyles.alternatePrompt} ${sharedStyles.paragraphWrapper}`}
           style={{ color: "black" }}
