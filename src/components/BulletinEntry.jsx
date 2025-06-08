@@ -1,8 +1,28 @@
 import { useTranslation } from "react-i18next";
 import styles from "./BulletinEntry.module.css";
+import { DateRangeOutlined } from "@mui/icons-material";
 
 function BulletinEntry(props) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+
+  const formattedDate = () => {
+    // if (props.date === isNaN) return props.date;
+    const dateObject = new Date(props.date);
+    const yearToFormat = dateObject.getFullYear();
+    const monthToFormat = dateObject.getMonth();
+    const dateToFormat = dateObject.getDate() + 1;
+    const koreanDate = `${yearToFormat}년 ${monthToFormat}월 ${dateToFormat}일`;
+
+    if (koreanDate == "Invalid Date") return "date";
+
+    return i18n.language === "en"
+      ? dateObject.toLocaleDateString("en-GB", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        })
+      : koreanDate;
+  };
 
   return (
     <>
@@ -31,7 +51,10 @@ function BulletinEntry(props) {
           <div
             className={`${styles.entryDate} ${props.isTitle && styles.emphasize}`}
           >
-            {props.date}
+            {formattedDate() === "Invalid Date" ||
+            formattedDate() === "NaN년 NaN월 NaN일"
+              ? props.date
+              : formattedDate()}
           </div>
         </div>
       </div>

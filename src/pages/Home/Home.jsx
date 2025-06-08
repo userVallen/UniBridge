@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import Card from "react-bootstrap/Card";
 import { Row, Col, Container } from "react-bootstrap";
@@ -10,19 +10,15 @@ import megaphone from "../../assets/megaphone.png";
 import "react-calendar/dist/Calendar.css";
 import "../../styles/calendar-widget.css";
 import styles from "./Home.module.css";
+import { SharedEventsContext } from "../../contexts/SharedEventsContext";
 
 function Home() {
   const { t } = useTranslation();
 
   // We need another page/small window to input events (set the title, date, etc.)
-  const [noticeEvents, setNoticeEvent] = useState([
-    { title: "Event Title 1", date: "1 May 2025", place: "Room 102" },
-    { title: "Event Title 2", date: "2 May 2025", place: "Room 103" },
-  ]);
-  const [communityEvents, setCommunityEvent] = useState([
-    { title: "Post Title 1", date: "1 June 2025", subject: "Person A" },
-    { title: "Post Title 2", date: "2 June 2025", subject: "Person B" },
-  ]);
+  const { noticeEntries, setNoticeEntries } = useContext(SharedEventsContext);
+  const { communityEntries, setCommunityEntries } =
+    useContext(SharedEventsContext);
 
   return (
     <div className={styles.app}>
@@ -42,14 +38,14 @@ function Home() {
               title={t("home.notice")}
               img={megaphone}
               alt="notice icon"
-              entries={noticeEvents}
+              entries={noticeEntries}
             />
             <CardWidget
               link="/community"
               title={t("home.community")}
               img={chatBubble}
               alt="community icon"
-              entries={communityEvents}
+              entries={communityEntries}
             />
           </Col>
         </Row>
