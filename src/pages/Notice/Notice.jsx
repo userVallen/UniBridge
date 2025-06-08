@@ -11,6 +11,9 @@ function Notice() {
   const { t } = useTranslation();
   const { noticeEntries, setNoticeEntries } = useContext(SharedEventsContext);
 
+  console.log("Notice Entries Below");
+  console.log(noticeEntries);
+
   return (
     <>
       <NavigationBar />

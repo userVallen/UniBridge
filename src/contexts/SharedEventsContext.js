@@ -11,26 +11,35 @@ export const SharedEventProvider = ({ children }) => {
   const [noticeEntries, setNoticeEntries] = useState([]);
   const [sharedEvents, setSharedEvent] = useState([]);
 
+  function isAllDay(event) {
+    const start = new Date(event.start);
+    const end = new Date(event.end);
+
+    return start.toDateString() === end.toDateString() ? true : false;
+  }
+
   // Fetch data
   useEffect(() => {
-    console.log("useEffect called");
     Promise.all([fetchCommunityPosts(), fetchNoticePosts()])
       .then(([communityPosts, noticePosts]) => {
-        console.log(communityPosts);
-        console.log(noticePosts);
-
         // Fetch Community data
         const formattedCommunityData = communityPosts.map((post, index) => ({
           key: post.id,
           number: index + 1,
           department: post.author_major,
           title: post.title,
+          content: post.content,
           admin: post.author_name || "Unknown",
+          student_id: post.author_student_id,
           date: new Date(post.created_at).toLocaleDateString("en-GB", {
             day: "numeric",
             month: "long",
             year: "numeric",
           }),
+          start: post.event_start,
+          end: post.event_end,
+          place: post.event_location,
+          allDay: isAllDay(post),
         }));
         setCommunityEntries(formattedCommunityData);
 
@@ -40,12 +49,18 @@ export const SharedEventProvider = ({ children }) => {
           number: index + 1,
           department: post.author_major,
           title: post.title,
+          content: post.content,
           admin: post.author_name || "Unknown",
+          student_id: post.author_student_id,
           date: new Date(post.created_at).toLocaleDateString("en-GB", {
             day: "numeric",
             month: "long",
             year: "numeric",
           }),
+          start: post.event_start,
+          end: post.event_end,
+          place: post.event_location,
+          allDay: isAllDay(post),
         }));
         setNoticeEntries(formattedNoticeData);
       })
@@ -58,9 +73,9 @@ export const SharedEventProvider = ({ children }) => {
 
     const formatted = allEvents.map((event) => ({
       ...event,
-      backgroundColor: majorColorClassMap[event.major]?.background,
-      borderColor: majorColorClassMap[event.major]?.border,
-      textColor: majorColorClassMap[event.major]?.color,
+      backgroundColor: majorColorClassMap[event.department]?.background,
+      borderColor: majorColorClassMap[event.department]?.border,
+      textColor: majorColorClassMap[event.department]?.color,
     }));
 
     setSharedEvent(formatted);

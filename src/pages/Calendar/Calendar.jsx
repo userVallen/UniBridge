@@ -22,10 +22,14 @@ function Calendar() {
   const [selectedDayEvents, setSelectedDayEvents] = useState();
 
   useEffect(() => {
+    console.log(sharedEvents);
+  });
+
+  useEffect(() => {
     if (!selectedDayEvents) return; // Do nothing if no day has been clicked
 
     const filteredEvents = sharedEvents.filter((event) => {
-      const eventDate = new Date(event.start || event.date); // Parse date from event
+      const eventDate = new Date(event.event_start || event.date); // Parse date from event
       const selectedDate = new Date(selectedDayEvents.date); // Clicked date
 
       // Check if this event falls on the selected day
@@ -129,10 +133,12 @@ function Calendar() {
 
                   // Parse the event’s start and end dates (if end doesn’t exist, it’s treated as a one-day event).
                   const dayEvents = sharedEvents.filter((event) => {
-                    const start = event.start
-                      ? new Date(event.start)
+                    const start = event.event_start
+                      ? new Date(event.event_start)
                       : new Date(event.date);
-                    const end = event.end ? new Date(event.end) : start;
+                    const end = event.event_end
+                      ? new Date(event.event_end)
+                      : start;
 
                     // Normalize times to ignore hours/minutes
                     const normalizedSelectedDate = new Date(

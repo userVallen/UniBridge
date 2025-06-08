@@ -25,7 +25,7 @@ function DayDetails({ date, events }) {
     <div className={styles.dayEventContainer}>
       <p className={styles.date}>{formatMonthYear()}</p>
 
-      {events.map((event) => {
+      {events.map((event, index) => {
         var eventTime = "All-day";
         if (event.start !== undefined) {
           const eventStart = event.start.slice(11, 16);
@@ -35,11 +35,13 @@ function DayDetails({ date, events }) {
           const eventEnd = event.end.slice(11, 16);
           eventTime = `${eventTime} ~ ${eventEnd}`;
         }
+        console.log(event);
         return (
           <div
+            key={index}
             className={styles.eventCard}
             style={{
-              backgroundColor: `${majorColorClassMap[`${event.major}`].background}`,
+              backgroundColor: `${majorColorClassMap[`${event.department}`]?.background}`,
             }}
           >
             <div className={styles.timeContainer}>{eventTime}</div>
