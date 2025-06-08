@@ -3,7 +3,7 @@ import BulletinEntry from "./BulletinEntry";
 import styles from "./BulletinBoard.module.css";
 import { v4 as uuidv4 } from "uuid"; // Use if needed
 
-function BulletinBoard({ entries, setEntries }) {
+function BulletinBoard({ community, notice, entries, setEntries }) {
   const { t } = useTranslation();
 
   var visibleEntries = [...entries];
@@ -21,15 +21,27 @@ function BulletinBoard({ entries, setEntries }) {
   return (
     <div className={styles.boardContainer}>
       <div className={styles.titleRow}>
-        <BulletinEntry
-          className={styles.titleRow}
-          number={t("bulletin.number")}
-          department={t("bulletin.department")}
-          title={t("bulletin.title")}
-          admin={t("bulletin.admin")}
-          date={t("bulletin.date")}
-          isTitle={true}
-        />
+        {community ? (
+          <BulletinEntry
+            className={styles.titleRow}
+            number={t("bulletin.number")}
+            department={t("bulletin.department")}
+            title={t("bulletin.title")}
+            admin={t("bulletin.name")}
+            date={t("bulletin.date")}
+            isTitle={true}
+          />
+        ) : (
+          <BulletinEntry
+            className={styles.titleRow}
+            number={t("bulletin.number")}
+            department={t("bulletin.department")}
+            title={t("bulletin.title")}
+            admin={t("bulletin.council")}
+            date={t("bulletin.date")}
+            isTitle={true}
+          />
+        )}
       </div>
 
       {visibleEntries.map((entry, index) => {

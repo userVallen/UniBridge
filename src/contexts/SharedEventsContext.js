@@ -1,45 +1,82 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 import { majorColorClassMap } from "../constants/stylesMap";
+
+import { fetchCommunityPosts } from "../api/communityApi";
+import { fetchNoticePosts } from "../api/noticeApi";
 
 export const SharedEventsContext = createContext();
 
 export const SharedEventProvider = ({ children }) => {
-  const rawEvents = [
-    {
-      title: "event 1-1",
-      date: "2025-06-21",
-      place: "place 1",
-      major: "mse",
-    },
-    {
-      title: "event 1-2",
-      start: "2025-06-21T18:00:00",
-      end: "2025-06-21T20:00:00",
-      place: "place 1",
-      major: "edu",
-      allDay: "false", // has to be added to timed single-day events
-    },
-    {
-      title: "event 2",
-      start: "2025-06-29T10:00:00",
-      end: "2025-07-01T23:00:00",
-      place: "place 2",
-      major: "iba",
-      allDay: "true", // has to be added to timed multiple-day events
-    },
-  ];
+  const [communityEntries, setCommunityEntries] = useState([]);
+  const [noticeEntries, setNoticeEntries] = useState([]);
+  const [sharedEvents, setSharedEvent] = useState([]);
 
-  const [sharedEvents, setSharedEvent] = useState(
-    rawEvents.map((event) => ({
+  // Fetch data
+  useEffect(() => {
+    console.log("useEffect called");
+    Promise.all([fetchCommunityPosts(), fetchNoticePosts()])
+      .then(([communityPosts, noticePosts]) => {
+        console.log(communityPosts);
+        console.log(noticePosts);
+
+        // Fetch Community data
+        const formattedCommunityData = communityPosts.map((post, index) => ({
+          key: post.id,
+          number: index + 1,
+          department: post.author_major,
+          title: post.title,
+          admin: post.author_name || "Unknown",
+          date: new Date(post.created_at).toLocaleDateString("en-GB", {
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+          }),
+        }));
+        setCommunityEntries(formattedCommunityData);
+
+        // Fetch Notice data
+        const formattedNoticeData = noticePosts.map((post, index) => ({
+          key: post.id,
+          number: index + 1,
+          department: post.author_major,
+          title: post.title,
+          admin: post.author_name || "Unknown",
+          date: new Date(post.created_at).toLocaleDateString("en-GB", {
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+          }),
+        }));
+        setNoticeEntries(formattedNoticeData);
+      })
+      .catch((error) => console.error("Error fetching events: ", error));
+  }, []);
+
+  // Combine into sharedEvents when either list changes
+  useEffect(() => {
+    const allEvents = [...communityEntries, ...noticeEntries];
+
+    const formatted = allEvents.map((event) => ({
       ...event,
-      backgroundColor: majorColorClassMap[event.major].background,
-      borderColor: majorColorClassMap[event.major].border,
-      textColor: majorColorClassMap[event.major].color,
-    }))
-  );
+      backgroundColor: majorColorClassMap[event.major]?.background,
+      borderColor: majorColorClassMap[event.major]?.border,
+      textColor: majorColorClassMap[event.major]?.color,
+    }));
+
+    setSharedEvent(formatted);
+  }, [communityEntries, noticeEntries]);
 
   return (
-    <SharedEventsContext.Provider value={{ sharedEvents, setSharedEvent }}>
+    <SharedEventsContext.Provider
+      value={{
+        sharedEvents,
+        setSharedEvent,
+        noticeEntries,
+        setNoticeEntries,
+        communityEntries,
+        setCommunityEntries,
+      }}
+    >
       {children}
     </SharedEventsContext.Provider>
   );

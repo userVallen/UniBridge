@@ -28,7 +28,14 @@ export const dayList = [
   "twelfthDay",
 ];
 
-export const majorList = ["mse", "iba", "bio", "kor", "art", "edu"];
+export const majorList = [
+  "Mobile Systems Engineering",
+  "International Business Administration",
+  "Bio and Material Engineering",
+  "Korea Studies",
+  "Acting & Filmmaking",
+  "Global Core Education",
+];
 
 export const colorSetList = [
   {
@@ -70,10 +77,14 @@ export const colorSetList = [
 ];
 
 export const majorColorClassMap = {
-  mse: colorSetList.find((item) => item.id === "blue"),
-  iba: colorSetList.find((item) => item.id === "orange"),
-  bio: colorSetList.find((item) => item.id === "gray"),
-  kor: colorSetList.find((item) => item.id === "red"),
-  art: colorSetList.find((item) => item.id === "green"),
-  edu: colorSetList.find((item) => item.id === "purple"),
+  "Mobile Systems Engineering": colorSetList.find((item) => item.id === "blue"),
+  "International Business Administration": colorSetList.find(
+    (item) => item.id === "orange"
+  ),
+  "Bio and Material Engineering": colorSetList.find(
+    (item) => item.id === "gray"
+  ),
+  "Korea Studies": colorSetList.find((item) => item.id === "red"),
+  "Acting & Filmmaking": colorSetList.find((item) => item.id === "green"),
+  "Global Core Education": colorSetList.find((item) => item.id === "purple"),
 };

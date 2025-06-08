@@ -1,6 +1,9 @@
+import { useTranslation } from "react-i18next";
 import styles from "./BulletinEntry.module.css";
 
 function BulletinEntry(props) {
+  const { t } = useTranslation();
+
   return (
     <>
       <div className={styles.desktopView}>
@@ -13,7 +16,7 @@ function BulletinEntry(props) {
           <div
             className={`${styles.entryDepartment} ${props.isTitle && styles.emphasize}`}
           >
-            {props.department}
+            {t(`filter.${props.department}`)}
           </div>
           <div
             className={`${styles.entryTitle} ${props.isTitle && styles.emphasize}`}
@@ -23,7 +26,7 @@ function BulletinEntry(props) {
           <div
             className={`${styles.entryAdmin} ${props.isTitle && styles.emphasize}`}
           >
-            {props.admin}
+            {props.community ? props.admin : t(`council.${props.admin}`)}
           </div>
           <div
             className={`${styles.entryDate} ${props.isTitle && styles.emphasize}`}

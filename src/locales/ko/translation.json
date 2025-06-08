@@ -15,7 +15,8 @@
     "number": "번호",
     "department": "학과",
     "title": "제목",
-    "admin": "등록자",
+    "name": "등록자",
+    "council": "등록자",
     "date": "등록일"
   },
 
@@ -46,13 +47,27 @@
     "title": "커뮤니티"
   },
 
+  "council": {
+    "등록자": "등록자",
+
+    "MSE Council": "모바일시스템공학과 학생회",
+    "IBA Council": "국제경영학과 학생회",
+    "BME Council": "바이오소재융합공학과 학생회",
+    "KST Council": "한국학과 학생회",
+    "AFM Council": "연기영상예술학과 학생회",
+    "GCE Council": "글로벌기초교육학부 학생회"
+  },
+
   "filter": {
-    "mse": "모바일시스템공학과",
-    "iba": "국제경영학과",
-    "bio": "바이오소재융합공학과",
-    "kor": "한국학과",
-    "art": "연기영상예술학과",
-    "edu": "글로벌기초교육학부"
+    "": "",
+    "학과": "학과",
+
+    "Mobile Systems Engineering": "모바일시스템공학과",
+    "International Business Administration": "국제경영학과",
+    "Bio and Material Engineering": "바이오소재융합공학과",
+    "Korea Studies": "한국학과",
+    "Acting & Filmmaking": "연기영상예술학과",
+    "Global Core Education": "글로벌기초교육학부"
   },
 
   "home": {

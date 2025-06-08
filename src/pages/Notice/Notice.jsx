@@ -1,42 +1,25 @@
-import { useState, useEffect } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { fetchNoticePosts } from "../../api/noticeApi";
 import BulletinBoard from "../../components/BulletinBoard";
 import NavigationBar from "../../components/NavigationBar";
 import TitleCard from "../../components/TitleCard";
 
+import { SharedEventsContext } from "../../contexts/SharedEventsContext";
+
 function Notice() {
   const { t } = useTranslation();
-
-  const [noticeEntries, setNoticeEntries] = useState([]);
-
-  useEffect(() => {
-    fetchNoticePosts()
-      .then((posts) => {
-        const formattedData = posts.map((post, index) => ({
-          key: post.id,
-          number: index + 1,
-          department: post.author_major,
-          title: post.title,
-          admin: post.author_name || "Unknown",
-          date: new Date(post.created_at).toLocaleDateString("en-GB", {
-            day: "numeric",
-            month: "long",
-            year: "numeric",
-          }),
-        }));
-        setNoticeEntries(formattedData);
-      })
-      .catch((error) => {
-        console.error("Error fetching community posts:", error);
-      });
-  }, []);
+  const { noticeEntries, setNoticeEntries } = useContext(SharedEventsContext);
 
   return (
     <>
       <NavigationBar />
       <TitleCard title={t("notice.title")} />
-      <BulletinBoard entries={noticeEntries} setEntries={setNoticeEntries} />
+      <BulletinBoard
+        notice
+        entries={noticeEntries}
+        setEntries={setNoticeEntries}
+      />
     </>
   );
 }

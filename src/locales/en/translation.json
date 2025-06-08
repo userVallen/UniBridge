@@ -16,6 +16,8 @@
     "department": "Department",
     "title": "Title",
     "admin": "Admin",
+    "name": "Name",
+    "council": "Council",
     "date": "Date"
   },
 
@@ -46,13 +48,28 @@
     "title": "Community"
   },
 
+  "council": {
+    "": "",
+    "Council": "Council",
+
+    "MSE Council": "MSE Council",
+    "IBA Council": "IBA Council",
+    "BME Council": "BME Council",
+    "KST Council": "KST Council",
+    "AFM Council": "AFM Council",
+    "GCE Council": "GCE Council"
+  },
+
   "filter": {
-    "mse": "Mobile Systems Engineering",
-    "iba": "Global Business Administration",
-    "bio": "Biomaterial Convergence Engineering",
-    "kor": "Korean Studies",
-    "art": "Performing Arts",
-    "edu": "Global Basic Education"
+    "": "",
+    "Department": "Department",
+
+    "Mobile Systems Engineering": "Mobile Systems Engineering",
+    "International Business Administration": "International Business Administration",
+    "Bio and Material Engineering": "Bio and Material Engineering",
+    "Korea Studies": "Korean Studies",
+    "Acting & Filmmaking": "Acting & Filmmaking",
+    "Global Core Education": "Global Core Education"
   },
 
   "home": {

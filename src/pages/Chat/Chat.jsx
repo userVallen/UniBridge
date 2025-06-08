@@ -85,6 +85,24 @@ function Chat() {
           type: "incoming",
           timestamp: "2025-06-08 15:05",
         },
+        {
+          id: 12,
+          text: "Me three!",
+          type: "incoming",
+          timestamp: "2025-06-08 15:05",
+        },
+        {
+          id: 13,
+          text: "Me three!",
+          type: "incoming",
+          timestamp: "2025-06-08 15:05",
+        },
+        {
+          id: 14,
+          text: "Me three!",
+          type: "incoming",
+          timestamp: "2025-06-08 15:05",
+        },
       ],
     },
     {
