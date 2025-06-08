@@ -1,5 +1,4 @@
 import axios from "axios";
-import { resolveConfig } from "prettier";
 
 const API_BASE_URL = "http://172.31.61.133:8000";
 
