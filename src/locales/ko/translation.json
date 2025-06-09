@@ -134,5 +134,17 @@
       "sendCode": "메일전송",
       "inputCode": "인증 번호를 입력해주세요"
     }
+  },
+
+  "login": {
+    "title": "로그인",
+    "instruction": "회원정보 입력하주세요",
+    "alternatePrompt": "계정 없습니까?",
+    "signup": "등록",
+    "email": "이메일",
+    "password": "비밀번호",
+    "forgot": "비밀번호 잊으셨나요?",
+    "show": "비밀번호 보기",
+    "submit": "로그인"
   }
 }

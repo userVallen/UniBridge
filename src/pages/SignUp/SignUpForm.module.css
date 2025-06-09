@@ -23,6 +23,11 @@
   row-gap: 1em;
 }
 
+.inputGroup {
+  min-width: 20vw;
+  width: 22em;
+}
+
 .inputWrapper,
 .selectWrapper {
   width: 25em;
@@ -51,4 +56,13 @@
   padding: 0.4rem 0.75rem;
   cursor: pointer;
   white-space: nowrap;
+  height: inherit;
+  text-align: center;
+}
+
+/* ------- Responsive Styles ------- */
+@media (max-width: 768px) {
+  .verifyButton {
+    border-radius: 6px;
+  }
 }

@@ -70,6 +70,7 @@ function SignUpForm({ onClick }) {
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
+                noAutoFill
               />
               <SignUpBox
                 label={`*${t("signup.confirmPassword")}`}
@@ -77,6 +78,7 @@ function SignUpForm({ onClick }) {
                 name="confirmPassword"
                 value={formData.confirmPassword}
                 onChange={handleChange}
+                noAutoFill
               />
             </div>
 

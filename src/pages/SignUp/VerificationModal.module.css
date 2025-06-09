@@ -19,6 +19,10 @@
   width: 40vw;
 }
 
+.modalHeader {
+  font-size: 1.5em;
+}
+
 .modalBody {
   display: flex;
   flex-direction: column;
@@ -33,10 +37,32 @@
 .inputWrapper {
   display: flex;
   flex: 5;
+  font-size: 1em;
 }
 
 .buttonWrapper {
   display: flex;
   flex: 1;
   justify-content: center;
+  align-items: center;
+  font-size: 1.1em;
+}
+
+/* ------- Responsive Styles ------- */
+@media (max-width: 1400px) {
+  .modal {
+    width: 50vw;
+  }
+}
+
+@media (max-width: 1200px) {
+  .modal {
+    width: 60vw;
+  }
+}
+
+@media (max-width: 992px) {
+  .modal {
+    width: 70vw;
+  }
 }

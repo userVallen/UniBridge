@@ -136,5 +136,17 @@
       "sendCode": "Send code",
       "inputCode": "Type in the verification code"
     }
+  },
+
+  "login": {
+    "title": "Login",
+    "instruction": "Enter your email below to login to your account",
+    "alternatePrompt": "Don't have an account?",
+    "signup": "Sign up",
+    "email": "Email",
+    "password": "Password",
+    "forgot": "Forgot your password?",
+    "show": "Show password",
+    "submit": "Login"
   }
 }

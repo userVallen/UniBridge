@@ -20,13 +20,16 @@ function SignUpBox(props) {
           {props.requireVerification ? (
             <InputGroup
               className={`${sharedStyles.inputWrapper} ${styles.inputWrapper}`}
+              style={{ border: "none" }}
             >
               <FormControl
+                className={`${sharedStyles.inputWrapper} ${styles.inputWrapper}`}
                 type="text"
                 placeholder={props.placeholder}
                 name={props.name}
                 value={props.value}
                 onChange={props.onChange}
+                autoComplete={props.noAutoFill && "off"}
                 required
               />
               <button
@@ -54,6 +57,7 @@ function SignUpBox(props) {
               name={props.name}
               value={props.value}
               onChange={props.onChange}
+              autoComplete={props.noAutoFill && "off"}
               required
             />
           )}
