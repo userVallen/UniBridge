@@ -1,6 +1,5 @@
-import { useState, useContext, useEffect } from "react";
+import { useContext } from "react";
 import { useTranslation } from "react-i18next";
-import { fetchNoticePosts } from "../../api/noticeApi";
 import BulletinBoard from "../../components/BulletinBoard";
 import NavigationBar from "../../components/NavigationBar";
 import TitleCard from "../../components/TitleCard";

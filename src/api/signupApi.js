@@ -8,7 +8,6 @@ export async function sendEmailCode(email) {
     const response = await axios.post(`${API_BASE_URL}/auth/email-verify/`, {
       email,
     });
-    console.log(response.data);
     return response.data;
   } catch (error) {
     if (error.response) {
@@ -43,6 +42,8 @@ export async function signUpUser(formData) {
     const response = await axios.post(`${API_BASE_URL}/signup/userinfo/`, {
       ...formData,
       student_id: formData.studentId,
+      student_type: formData.studentType,
+      matchingType: formData.matchingtype,
     });
     console.log(response.data);
     return response.data;

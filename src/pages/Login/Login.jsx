@@ -21,7 +21,7 @@ function Login() {
       const data = await loginUser(email, password);
       console.log("Login successful:", data);
       // TODO: save token or navigate to another page
-      navigate("/");
+      navigate("/home");
     } catch (err) {
       console.error("Login failed:", err);
       // Optionally show error message to user

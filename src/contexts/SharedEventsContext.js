@@ -40,6 +40,7 @@ export const SharedEventProvider = ({ children }) => {
           end: post.event_end,
           place: post.event_location,
           allDay: isAllDay(post),
+          isCommunity: post.isCommunity,
         }));
         setCommunityEntries(formattedCommunityData);
 

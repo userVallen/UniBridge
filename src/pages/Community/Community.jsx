@@ -11,6 +11,9 @@ function Community() {
   const { communityEntries, setCommunityEntries } =
     useContext(SharedEventsContext);
 
+  console.log("communityEntries is:");
+  console.log(communityEntries);
+
   return (
     <>
       <NavigationBar />

@@ -32,7 +32,7 @@ function VerificationModal({
       onClose();
       alert("Verified!");
     } else {
-      alert(result.message);
+      alert("Verification failed.");
     }
   }
 

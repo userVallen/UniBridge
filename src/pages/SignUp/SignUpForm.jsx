@@ -142,8 +142,8 @@ function SignUpForm({ formData, setFormData, onClick }) {
             id="student-type-1"
             name="studentType"
             label={t("signup.studentType.option1")}
-            value="type1"
-            checked={formData.studentType === "type1"}
+            value="Korean"
+            checked={formData.studentType === "Korean"}
             onChange={handleChange}
           ></Form.Check>
           <Form.Check
@@ -151,8 +151,8 @@ function SignUpForm({ formData, setFormData, onClick }) {
             id="student-type-2"
             name="studentType"
             label={t("signup.studentType.option2")}
-            value="type2"
-            checked={formData.studentType === "type2"}
+            value="International"
+            checked={formData.studentType === "International"}
             onChange={handleChange}
           ></Form.Check>
         </Form.Group>

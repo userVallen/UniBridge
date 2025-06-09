@@ -1,12 +1,10 @@
 import { useTranslation } from "react-i18next";
 import styles from "./BulletinEntry.module.css";
-import { DateRangeOutlined } from "@mui/icons-material";
 
 function BulletinEntry(props) {
   const { t, i18n } = useTranslation();
 
   const formattedDate = () => {
-    // if (props.date === isNaN) return props.date;
     const dateObject = new Date(props.date);
     const yearToFormat = dateObject.getFullYear();
     const monthToFormat = dateObject.getMonth();

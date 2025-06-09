@@ -30,6 +30,7 @@ function BulletinBoard({ community, notice, entries, setEntries }) {
             admin={t("bulletin.name")}
             date={t("bulletin.date")}
             isTitle={true}
+            community
           />
         ) : (
           <BulletinEntry
@@ -53,6 +54,7 @@ function BulletinBoard({ community, notice, entries, setEntries }) {
             title={entry.title}
             admin={entry.admin}
             date={entry.date}
+            community={entry.isCommunity && true}
           />
         );
       })}

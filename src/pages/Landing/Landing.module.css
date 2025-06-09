@@ -1,0 +1,42 @@
+.app {
+  background: #ffffff;
+  background: -webkit-linear-gradient(0deg, #ffffff 0%, #d7ddff 100%);
+  background: linear-gradient(0deg, #ffffff 0%, #d7ddff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.window {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* border: 1px solid #dedede;
+  border-radius: 10px; */
+  padding: 1.5em;
+  row-gap: 2em;
+}
+
+.logoWrapper {
+  height: 8em;
+  width: auto;
+}
+
+.buttonGroup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  row-gap: 1em;
+}
+
+.buttonWrapper {
+  border-radius: 8px;
+  border-color: transparent;
+  width: 25vh;
+  background-color: #d7ddff;
+  color: #576090;
+}

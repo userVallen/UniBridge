@@ -5,23 +5,50 @@ import { Form } from "react-bootstrap";
 import SurveyBox from "./SurveyBox";
 import sharedStyles from "../../styles/AuthPage.module.css";
 import styles from "./SurveyForm.module.css";
+import { format } from "prettier";
 
 function SurveyForm({ formData, setFormData }) {
   const { t } = useTranslation();
   const navigate = useNavigate();
+
+  function toCamelCase(str) {
+    return str
+      .toLowerCase()
+      .replace(/[\s_]+(.)?/g, (_, char) => (char ? char.toUpperCase() : ""));
+  }
 
   function handleChange(e) {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   }
 
+  function handleCheckboxChange(e) {
+    const name = toCamelCase(e.target.name);
+    const value = e.target.value;
+    const checked = e.target.checked;
+
+    setFormData((prev) => {
+      const prevArray = prev[name] || [];
+      const newArray = checked
+        ? [...prevArray, value]
+        : prevArray.filter((item) => item !== value);
+
+      return {
+        ...prev,
+        [name]: newArray,
+      };
+    });
+  }
+
   async function handleSignUp(e) {
     e.preventDefault();
+    console.log("Submitted data");
+    console.log(formData);
     try {
       const data = await signUpUser(formData);
       console.log("Sign up successful:", data);
       // TODO: save token or navigate to another page
-      navigate("/");
+      navigate("/home");
     } catch (err) {
       console.error("Sign up failed:", err);
       // Optionally show error message to user
@@ -47,6 +74,8 @@ function SurveyForm({ formData, setFormData }) {
             name="interest"
             value={formData.interest}
             onChange={handleChange}
+            onCheck={handleCheckboxChange}
+            setFormData={setFormData}
           />
           <SurveyBox
             label={t("signup.language.title")}
@@ -61,6 +90,8 @@ function SurveyForm({ formData, setFormData }) {
             name="language"
             value={formData.language}
             onChange={handleChange}
+            onCheck={handleCheckboxChange}
+            setFormData={setFormData}
           />
           <SurveyBox
             label={t("signup.purpose.title")}
@@ -72,6 +103,8 @@ function SurveyForm({ formData, setFormData }) {
             name="email"
             value={formData.purpose}
             onChange={handleChange}
+            onCheck={handleCheckboxChange}
+            setFormData={setFormData}
           />
           <SurveyBox
             label={t("signup.matchingType.title")}
@@ -79,6 +112,8 @@ function SurveyForm({ formData, setFormData }) {
             name="matchingType"
             value={formData.matchingType}
             onChange={handleChange}
+            onCheck={handleCheckboxChange}
+            setFormData={setFormData}
           />
         </Form>
       </div>

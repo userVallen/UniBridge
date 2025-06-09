@@ -46,11 +46,7 @@ function SignUp() {
           />
         )}
         {step === "survey" && (
-          <SurveyForm
-            formData={formData}
-            setFormData={setFormData}
-            // onSubmit={handleSignUp}
-          />
+          <SurveyForm formData={formData} setFormData={setFormData} />
         )}
 
         <p className={sharedStyles.alternatePrompt}>

@@ -9,6 +9,7 @@ import Notice from "./pages/Notice/Notice";
 import SignUp from "./pages/SignUp/SignUp";
 import BuddyMatching from "./pages/BuddyMatching/BuddyMatching";
 import Chat from "./pages/Chat/Chat";
+import Landing from "./pages/Landing/Landing";
 
 export default function App() {
   return (
@@ -16,7 +17,8 @@ export default function App() {
       <SharedEventProvider>
         <Router>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Landing />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/community" element={<Community />} />
