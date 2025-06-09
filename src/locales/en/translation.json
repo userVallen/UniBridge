@@ -83,5 +83,58 @@
 
   "notice": {
     "title": "Notice"
+  },
+
+  "signup": {
+    "title": "Sign Up",
+    "instruction": "Enter your details below to create your account",
+    "alternatePrompt": "Already have an account?",
+    "login": "Login",
+    "email": "Email",
+    "verify": "Verify",
+    "password": "Password",
+    "placeholder": "Use upper/lowercase letters, numbers, and symbols",
+    "confirmPassword": "Confirm Password",
+    "name": "Name",
+    "studentId": "Student ID",
+    "major": "Major",
+    "nextPage": "Next Page",
+    "interest": {
+      "title": "Interest",
+      "option1": "Sports",
+      "option2": "Games",
+      "option3": "Music",
+      "option4": "Pets",
+      "option5": "Travel",
+      "option6": "Food",
+      "option7": "Anime",
+      "option8": "Study"
+    },
+    "language": {
+      "title": "Language",
+      "option1": "Korean",
+      "option2": "English",
+      "option3": "Chinese",
+      "option4": "Japanese",
+      "option5": "French",
+      "option6": "Spanish"
+    },
+    "purpose": {
+      "title": "Purpose",
+      "option1": "Making Friends",
+      "option2": "Language Exchange",
+      "option3": "Culture Exchange"
+    },
+    "method": { "title": "Preferred Matching Method" },
+    "studentType": {
+      "option1": "Korean",
+      "option2": "International"
+    },
+    "submit": "Sign Up",
+    "modal": {
+      "title": "Verify email",
+      "sendCode": "Send code",
+      "inputCode": "Type in the verification code"
+    }
   }
 }

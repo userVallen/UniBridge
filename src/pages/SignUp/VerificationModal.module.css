@@ -1,0 +1,42 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  width: 40vw;
+}
+
+.modalBody {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1em;
+}
+
+.inputRow {
+  display: flex;
+  column-gap: 1.5em;
+}
+
+.inputWrapper {
+  display: flex;
+  flex: 5;
+}
+
+.buttonWrapper {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}

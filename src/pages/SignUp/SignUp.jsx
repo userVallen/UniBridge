@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Container } from "react-bootstrap";
 import sharedStyles from "../../styles/AuthPage.module.css";
 import SignUpForm from "./SignUpForm";
 import SurveyForm from "./SurveyForm";
+import LanguageToggle from "../../components/LanguageToggle";
 
 function SignUp() {
+  const { t } = useTranslation();
   const [step, setStep] = useState("signup");
 
   function handleClick() {
@@ -13,18 +16,22 @@ function SignUp() {
 
   return (
     <Container className={sharedStyles.app}>
+      <span style={{ display: "flex", alignItems: "center" }}>
+        <LanguageToggle />
+      </span>
+
       <Container className={sharedStyles.window}>
-        <h1 className={sharedStyles.title}>Sign Up</h1>
-        <p>Enter your details below to create your account</p>
+        <h1 className={sharedStyles.title}>{t("signup.title")}</h1>
+        <p>{t("signup.instruction")}</p>
 
         {step === "signup" && <SignUpForm onClick={handleClick} />}
         {step === "survey" && <SurveyForm />}
 
         <p className={sharedStyles.alternatePrompt}>
-          Already have an account?
+          {t("signup.alternatePrompt")}
           <span style={{ margin: "5px" }}>
             <a className={sharedStyles.anchorWrapper} href="/login">
-              Login
+              {t("signup.login")}
             </a>
           </span>
         </p>

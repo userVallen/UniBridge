@@ -81,5 +81,58 @@
 
   "notice": {
     "title": "공지"
+  },
+
+  "signup": {
+    "title": "등록",
+    "instruction": "회원정보 입력하주세요",
+    "alternatePrompt": "이미 존재하는 사용자입니까?",
+    "login": "로그인",
+    "email": "이메일",
+    "verify": "인증하기",
+    "password": "비밀번호",
+    "placeholder": "대/소문자, 숫자, 특수문자 필수",
+    "confirmPassword": "비밀번호 확인",
+    "name": "이름",
+    "studentId": "학번",
+    "major": "학과",
+    "nextPage": "다음 페이지",
+    "interest": {
+      "title": "관심사",
+      "option1": "운동",
+      "option2": "게임",
+      "option3": "음악",
+      "option4": "반려동물",
+      "option5": "여행",
+      "option6": "음식",
+      "option7": "애니",
+      "option8": "공부"
+    },
+    "language": {
+      "title": "언어",
+      "option1": "한국어",
+      "option2": "영어",
+      "option3": "중국어",
+      "option4": "일본어",
+      "option5": "프랑스어",
+      "option6": "스페인어"
+    },
+    "purpose": {
+      "title": "교류 목적",
+      "option1": "친구 사귀기",
+      "option2": "언어 교환",
+      "option3": "문화 체험"
+    },
+    "method": { "title": "원하는 매칠 방식" },
+    "studentType": {
+      "option1": "한국 학생",
+      "option2": "국제 학생"
+    },
+    "submit": "등록하기",
+    "modal": {
+      "title": "이메일 인증하기",
+      "sendCode": "메일전송",
+      "inputCode": "인증 번호를 입력해주세요"
+    }
   }
 }

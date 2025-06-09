@@ -1,26 +1,23 @@
-import React from "react";
+import { Form } from "react-bootstrap";
 import styles from "./SurveyForm.module.css";
 
 function SurveyBox(props) {
   return (
-    <div className={styles.formSubcontainer}>
-      <form className={styles.formWrapper} action="">
-        <label htmlFor="">{props.label}</label>
-        <br />
-        <br />
+    <Form.Group className={styles.formSubcontainer}>
+      <Form.Label htmlFor="">{props.label}</Form.Label>
 
-        {props.options.map((optionLabel) => {
-          return (
-            <>
-              {" "}
-              <input className={styles.checkboxInput} type="checkbox" />
-              <label htmlFor="">{optionLabel}</label>
-              <br />{" "}
-            </>
-          );
-        })}
-      </form>
-    </div>
+      {props.options.map((optionLabel) => {
+        return (
+          <>
+            <Form.Check
+              className={styles.checkboxInput}
+              type="checkbox"
+              label={optionLabel}
+            />
+          </>
+        );
+      })}
+    </Form.Group>
   );
 }
 

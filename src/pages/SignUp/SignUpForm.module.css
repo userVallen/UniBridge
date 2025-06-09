@@ -20,9 +20,35 @@
   flex-direction: column;
   align-items: center;
   width: fit-content;
+  row-gap: 1em;
 }
 
 .inputWrapper,
 .selectWrapper {
   width: 25em;
+}
+
+.studentTypeContainer {
+  display: flex;
+  justify-self: center;
+  column-gap: 2em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.inputButtonWithWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.verifyButton {
+  border-radius: 8px;
+  border: none;
+  background-color: #2654ce;
+  color: #ffffff;
+  font-size: 1em;
+  padding: 0.4rem 0.75rem;
+  cursor: pointer;
+  white-space: nowrap;
 }

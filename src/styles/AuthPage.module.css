@@ -17,8 +17,6 @@
   align-items: center;
   justify-content: center;
   font-family: "Open Sans", sans-serif;
-  /* margin-top: 2rem;
-  margin-bottom: 2rem; */
 }
 
 .window {
@@ -41,7 +39,9 @@
   font-size: 14px;
 }
 
-.inputWrapper::placeholder {
+.inputWrapper::placeholder,
+.inputWrapper *::placeholder {
+  font-size: 1em;
   font-style: italic;
 }
 
@@ -56,10 +56,14 @@
 }
 
 .submitButton {
+  display: flex;
+  justify-self: center;
+  justify-content: center;
+  align-items: center;
   border-radius: 10px;
   background-color: rgba(8, 31, 92, 1);
   color: rgba(255, 255, 255, 1);
-  width: 100%;
+  width: 40%;
   height: 2.5rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
