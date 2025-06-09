@@ -123,7 +123,7 @@
       "option2": "언어 교환",
       "option3": "문화 체험"
     },
-    "method": { "title": "원하는 매칠 방식" },
+    "matchingType": { "title": "원하는 매칠 방식" },
     "studentType": {
       "option1": "한국 학생",
       "option2": "국제 학생"

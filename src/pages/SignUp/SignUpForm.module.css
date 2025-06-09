@@ -60,6 +60,13 @@
   text-align: center;
 }
 
+.showPasswordToggle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 5px 0;
+}
+
 /* ------- Responsive Styles ------- */
 @media (max-width: 768px) {
   .verifyButton {

@@ -125,7 +125,7 @@
       "option2": "Language Exchange",
       "option3": "Culture Exchange"
     },
-    "method": { "title": "Preferred Matching Method" },
+    "matchingType": { "title": "Preferred Matching Type" },
     "studentType": {
       "option1": "Korean",
       "option2": "International"

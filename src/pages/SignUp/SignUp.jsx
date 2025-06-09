@@ -9,6 +9,20 @@ import LanguageToggle from "../../components/LanguageToggle";
 function SignUp() {
   const { t } = useTranslation();
   const [step, setStep] = useState("signup");
+  const [formData, setFormData] = useState({
+    email: "",
+    isVerified: false,
+    password: "",
+    confirmPassword: "",
+    name: "",
+    studentId: "",
+    major: "",
+    studentType: "",
+    interest: [],
+    language: [],
+    purpose: [],
+    matchingType: [],
+  });
 
   function handleClick() {
     setStep("survey");
@@ -24,8 +38,20 @@ function SignUp() {
         <h1 className={sharedStyles.title}>{t("signup.title")}</h1>
         <p>{t("signup.instruction")}</p>
 
-        {step === "signup" && <SignUpForm onClick={handleClick} />}
-        {step === "survey" && <SurveyForm />}
+        {step === "signup" && (
+          <SignUpForm
+            formData={formData}
+            setFormData={setFormData}
+            onClick={handleClick}
+          />
+        )}
+        {step === "survey" && (
+          <SurveyForm
+            formData={formData}
+            setFormData={setFormData}
+            // onSubmit={handleSignUp}
+          />
+        )}
 
         <p className={sharedStyles.alternatePrompt}>
           {t("signup.alternatePrompt")}

@@ -3,13 +3,6 @@
   color: rgba(132, 132, 132, 1);
 }
 
-.showPasswordToggle {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin: 5px 0;
-}
-
 .showPasswordToggle > input {
   margin-right: 5px;
 }

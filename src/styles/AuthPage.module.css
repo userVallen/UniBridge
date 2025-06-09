@@ -81,6 +81,22 @@
   width: fit-content;
 }
 
+.showPasswordToggle {
+  display: flex;
+  flex-direction: row;
+  margin: 5px 0;
+  font-size: 0.9em;
+}
+
+.showPasswordToggle > input {
+  display: flex;
+  justify-content: center;
+}
+
+.showPasswordToggle > label {
+  margin-left: 0.45em;
+}
+
 /* ------- Responsive Styles ------- */
 @media (max-width: 1200px) {
   .window {

@@ -1,30 +1,26 @@
-import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Container, Form } from "react-bootstrap";
 import SignUpBox from "./SignUpBox";
 import sharedStyles from "../../styles/AuthPage.module.css";
 import styles from "./SignUpForm.module.css";
 
-function SignUpForm({ onClick }) {
+function SignUpForm({ formData, setFormData, onClick }) {
   const { t } = useTranslation();
-
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-    confirmPassword: "",
-    name: "",
-    studentId: "",
-    major: "",
-    studentType: "",
-  });
 
   function handleChange(e) {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   }
 
+  function handleVerified() {
+    console.log("handleVerified called");
+    setFormData((prev) => ({ ...prev, isVerified: true }));
+  }
+
   function handleNextStep(e) {
     e.preventDefault();
+
+    console.log(formData);
 
     if (
       !formData.email ||
@@ -41,6 +37,11 @@ function SignUpForm({ onClick }) {
 
     if (formData.password !== formData.confirmPassword) {
       alert("Please check your password confirmation");
+      return;
+    }
+
+    if (!formData.isVerified) {
+      alert("Please verify your email");
       return;
     }
 
@@ -61,6 +62,7 @@ function SignUpForm({ onClick }) {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
+                onVerified={handleVerified}
                 requireVerification
               />
               <SignUpBox
@@ -71,6 +73,7 @@ function SignUpForm({ onClick }) {
                 value={formData.password}
                 onChange={handleChange}
                 noAutoFill
+                hideOption
               />
               <SignUpBox
                 label={`*${t("signup.confirmPassword")}`}
@@ -79,6 +82,7 @@ function SignUpForm({ onClick }) {
                 value={formData.confirmPassword}
                 onChange={handleChange}
                 noAutoFill
+                hideOption
               />
             </div>
 
@@ -105,19 +109,25 @@ function SignUpForm({ onClick }) {
                 options={[
                   {
                     title: t("filter.Mobile Systems Engineering"),
-                    value: "Major1",
+                    value: "MSE",
                   },
                   {
                     title: t("filter.International Business Administration"),
-                    value: "Major2",
+                    value: "IBA",
                   },
                   {
                     title: t("filter.Bio and Material Engineering"),
-                    value: "Major3",
+                    value: "BME",
                   },
-                  { title: t("filter.Korea Studies"), value: "Major3" },
-                  { title: t("filter.Acting & Filmmaking"), value: "Major3" },
-                  { title: t("filter.Global Core Education"), value: "Major3" },
+                  { title: t("filter.Korea Studies"), value: "KST" },
+                  {
+                    title: t("filter.Acting & Filmmaking"),
+                    value: "AFM",
+                  },
+                  {
+                    title: t("filter.Global Core Education"),
+                    value: "GCE",
+                  },
                 ]}
                 value={formData.major}
                 onChange={handleChange}

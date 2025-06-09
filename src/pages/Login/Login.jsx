@@ -79,7 +79,7 @@ function Login() {
             />
 
             <Form.Check
-              className={styles.showPasswordToggle}
+              className={sharedStyles.showPasswordToggle}
               type="checkbox"
               label={t("login.show")}
               onChange={() => setPasswordVisibility((prev) => !prev)}
