@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-import { signUpUser } from "../../api/signupApi";
+import { submitUserInfo, submitBuddyInfo } from "../../api/signupApi";
 import { Form, Container, Row, Col } from "react-bootstrap";
 import SurveyBox from "./SurveyBox";
 import sharedStyles from "../../styles/AuthPage.module.css";
@@ -10,31 +10,43 @@ function SurveyForm({ formData, setFormData }) {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
-  function toCamelCase(str) {
-    return str
-      .toLowerCase()
-      .replace(/[\s_]+(.)?/g, (_, char) => (char ? char.toUpperCase() : ""));
-  }
+  // function toCamelCase(str) {
+  //   return str
+  //     .toLowerCase()
+  //     .replace(/[\s_]+(.)?/g, (_, char) => (char ? char.toUpperCase() : ""));
+  // }
 
-  function handleChange(e) {
+  function handleChange(e, section) {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({
+      ...prev,
+      [section]: {
+        ...prev[section],
+        [name]: value,
+      },
+    }));
   }
 
-  function handleCheckboxChange(e) {
-    const name = toCamelCase(e.target.name);
+  function handleCheckboxChange(e, section = "buddyInfo") {
+    // const name = toCamelCase(e.target.name);
+    const name = e.target.name;
     const value = e.target.value.toLowerCase();
     const checked = e.target.checked;
+    console.log(`name: ${name}, value: ${value}, checked: ${checked}`);
 
     setFormData((prev) => {
-      const prevArray = prev[name] || [];
+      const prevArray = prev[section][name] || [];
+
       const newArray = checked
         ? [...prevArray, value]
         : prevArray.filter((item) => item !== value);
 
       return {
         ...prev,
-        [name]: newArray,
+        [section]: {
+          ...prev[section],
+          [name]: newArray,
+        },
       };
     });
   }
@@ -43,9 +55,20 @@ function SurveyForm({ formData, setFormData }) {
     e.preventDefault();
     console.log("Submitted data");
     console.log(formData);
+
     try {
-      const data = await signUpUser(formData);
-      console.log("Sign up successful:", data);
+      const data = await submitUserInfo(formData.userInfo);
+      console.log("userInfo submitted:", data);
+      // TODO: save token or navigate to another page
+      // navigate("/home");
+    } catch (err) {
+      console.error("Sign up failed:", err);
+      // Optionally show error message to user
+    }
+
+    try {
+      const data = await submitBuddyInfo(formData.buddyInfo);
+      console.log("buddyInfo submitted:", data);
       // TODO: save token or navigate to another page
       navigate("/home");
     } catch (err) {
@@ -75,9 +98,11 @@ function SurveyForm({ formData, setFormData }) {
                       t("signup.interest.option8"),
                     ]}
                     name="interest"
-                    value={formData.interest}
+                    value={formData.buddyInfo.interest}
                     onChange={handleChange}
-                    onCheck={handleCheckboxChange}
+                    onCheck={(e) => {
+                      handleCheckboxChange(e, "buddyInfo");
+                    }}
                     setFormData={setFormData}
                   />
                 </Col>
@@ -93,9 +118,11 @@ function SurveyForm({ formData, setFormData }) {
                       t("signup.language.option6"),
                     ]}
                     name="language"
-                    value={formData.language}
+                    value={formData.buddyInfo.language}
                     onChange={handleChange}
-                    onCheck={handleCheckboxChange}
+                    onCheck={(e) => {
+                      handleCheckboxChange(e, "buddyInfo");
+                    }}
                     setFormData={setFormData}
                   />
                 </Col>
@@ -112,10 +139,12 @@ function SurveyForm({ formData, setFormData }) {
                       t("signup.purpose.option2"),
                       t("signup.purpose.option3"),
                     ]}
-                    name="email"
-                    value={formData.purpose}
+                    name="purpose"
+                    value={formData.buddyInfo.purpose}
                     onChange={handleChange}
-                    onCheck={handleCheckboxChange}
+                    onCheck={(e) => {
+                      handleCheckboxChange(e, "buddyInfo");
+                    }}
                     setFormData={setFormData}
                   />
                 </Col>
@@ -124,9 +153,11 @@ function SurveyForm({ formData, setFormData }) {
                     label={t("signup.matchingType.title")}
                     options={["1:1"]}
                     name="matchingType"
-                    value={formData.matchingType}
+                    value={formData.buddyInfo.matchingType}
                     onChange={handleChange}
-                    onCheck={handleCheckboxChange}
+                    onCheck={(e) => {
+                      handleCheckboxChange(e, "buddyInfo");
+                    }}
                     setFormData={setFormData}
                   />
                 </Col>

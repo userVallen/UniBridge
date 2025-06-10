@@ -10,18 +10,24 @@ function SignUp() {
   const { t } = useTranslation();
   const [step, setStep] = useState("signup");
   const [formData, setFormData] = useState({
-    email: "",
-    isVerified: false,
-    password: "",
-    confirmPassword: "",
-    name: "",
-    studentId: "",
-    major: "",
-    studentType: "",
-    interest: [],
-    language: [],
-    purpose: [],
-    matchingType: [],
+    userInfo: {
+      email: "",
+      isVerified: false,
+      password: "",
+      confirmPassword: "",
+      name: "",
+      studentId: "",
+      major: "",
+      studentType: "",
+    },
+
+    buddyInfo: {
+      email: "",
+      interest: [],
+      language: [],
+      purpose: [],
+      matchingType: "",
+    },
   });
 
   function handleClick() {

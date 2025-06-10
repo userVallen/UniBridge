@@ -7,14 +7,23 @@ import styles from "./SignUpForm.module.css";
 function SignUpForm({ formData, setFormData, onClick }) {
   const { t } = useTranslation();
 
-  function handleChange(e) {
+  function handleChange(e, section = "userInfo") {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({
+      ...prev,
+      [section]: {
+        ...prev[section],
+        [name]: value,
+      },
+    }));
   }
 
   function handleVerified() {
     console.log("handleVerified called");
-    setFormData((prev) => ({ ...prev, isVerified: true }));
+    setFormData((prev) => ({
+      ...prev,
+      ["userInfo"]: { ...prev["userInfo"], isVerified: true },
+    }));
   }
 
   function handleNextStep(e) {
@@ -23,24 +32,24 @@ function SignUpForm({ formData, setFormData, onClick }) {
     console.log(formData);
 
     if (
-      !formData.email ||
-      !formData.password ||
-      !formData.confirmPassword ||
-      !formData.name ||
-      !formData.studentId ||
-      !formData.major ||
-      !formData.studentType
+      !formData.userInfo.email ||
+      !formData.userInfo.password ||
+      !formData.userInfo.confirmPassword ||
+      !formData.userInfo.name ||
+      !formData.userInfo.studentId ||
+      !formData.userInfo.major ||
+      !formData.userInfo.studentType
     ) {
       alert("Please fill out all of the required fields");
       return;
     }
 
-    if (formData.password !== formData.confirmPassword) {
+    if (formData.userInfo.password !== formData.userInfo.confirmPassword) {
       alert("Please check your password confirmation");
       return;
     }
 
-    if (!formData.isVerified) {
+    if (!formData.userInfo.isVerified) {
       alert("Please verify your email");
       return;
     }
@@ -60,8 +69,11 @@ function SignUpForm({ formData, setFormData, onClick }) {
                 answerType="text"
                 placeholder="abc@dankook.ac.kr"
                 name="email"
-                value={formData.email}
-                onChange={handleChange}
+                value={formData.userInfo.email}
+                onChange={(e) => {
+                  handleChange(e, "userInfo");
+                  handleChange(e, "buddyInfo");
+                }}
                 onVerified={handleVerified}
                 requireVerification
               />
@@ -70,8 +82,8 @@ function SignUpForm({ formData, setFormData, onClick }) {
                 answerType="text"
                 placeholder={`*${t("signup.placeholder")}`}
                 name="password"
-                value={formData.password}
-                onChange={handleChange}
+                value={formData.userInfo.password}
+                onChange={(e) => handleChange(e, "userInfo")}
                 noAutoFill
                 hideOption
               />
@@ -79,8 +91,8 @@ function SignUpForm({ formData, setFormData, onClick }) {
                 label={`*${t("signup.confirmPassword")}`}
                 answerType="text"
                 name="confirmPassword"
-                value={formData.confirmPassword}
-                onChange={handleChange}
+                value={formData.userInfo.confirmPassword}
+                onChange={(e) => handleChange(e, "userInfo")}
                 noAutoFill
                 hideOption
               />
@@ -91,15 +103,15 @@ function SignUpForm({ formData, setFormData, onClick }) {
                 label={`*${t("signup.name")}`}
                 answerType="text"
                 name="name"
-                value={formData.name}
-                onChange={handleChange}
+                value={formData.userInfo.name}
+                onChange={(e) => handleChange(e, "userInfo")}
               />
               <SignUpBox
                 label={`*${t("signup.studentId")}`}
                 answerType="text"
                 name="studentId"
-                value={formData.studentId}
-                onChange={handleChange}
+                value={formData.userInfo.studentId}
+                onChange={(e) => handleChange(e, "userInfo")}
               />
               <SignUpBox
                 label={`*${t("signup.major")}`}
@@ -129,8 +141,8 @@ function SignUpForm({ formData, setFormData, onClick }) {
                     value: "GCE",
                   },
                 ]}
-                value={formData.major}
-                onChange={handleChange}
+                value={formData.userInfo.major}
+                onChange={(e) => handleChange(e, "userInfo")}
               />
             </div>
           </div>
@@ -143,8 +155,8 @@ function SignUpForm({ formData, setFormData, onClick }) {
             name="studentType"
             label={t("signup.studentType.option1")}
             value="Korean"
-            checked={formData.studentType === "Korean"}
-            onChange={handleChange}
+            checked={formData.userInfo.studentType === "Korean"}
+            onChange={(e) => handleChange(e, "userInfo")}
           ></Form.Check>
           <Form.Check
             type="radio"
@@ -152,8 +164,8 @@ function SignUpForm({ formData, setFormData, onClick }) {
             name="studentType"
             label={t("signup.studentType.option2")}
             value="International"
-            checked={formData.studentType === "International"}
-            onChange={handleChange}
+            checked={formData.userInfo.studentType === "International"}
+            onChange={(e) => handleChange(e, "userInfo")}
           ></Form.Check>
         </Form.Group>
 

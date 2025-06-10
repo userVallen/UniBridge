@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = "http://172.31.61.133:8000";
+const API_BASE_URL = "http://172.31.60.91:8000";
 
 export async function sendEmailCode(email) {
   try {
@@ -37,13 +37,25 @@ export async function verifyEmailCode(email, code) {
   }
 }
 
-export async function signUpUser(formData) {
+export async function submitUserInfo(userInfo) {
   try {
     const response = await axios.post(`${API_BASE_URL}/signup/userinfo/`, {
-      ...formData,
-      student_id: formData.studentId,
-      student_type: formData.studentType,
-      matchingType: formData.matchingtype,
+      ...userInfo,
+      student_id: userInfo.studentId,
+      student_type: userInfo.studentType,
+    });
+    console.log(response.data);
+    return response.data;
+  } catch (error) {
+    throw error.response?.data || { message: "Sign up failed." };
+  }
+}
+
+export async function submitBuddyInfo(buddyInfo) {
+  try {
+    const response = await axios.post(`${API_BASE_URL}/signup/buddyinfo/`, {
+      ...buddyInfo,
+      matching_type: buddyInfo.matchingType[0],
     });
     console.log(response.data);
     return response.data;
