@@ -1,11 +1,10 @@
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { signUpUser } from "../../api/signupApi";
-import { Form } from "react-bootstrap";
+import { Form, Container, Row, Col } from "react-bootstrap";
 import SurveyBox from "./SurveyBox";
 import sharedStyles from "../../styles/AuthPage.module.css";
 import styles from "./SurveyForm.module.css";
-import { format } from "prettier";
 
 function SurveyForm({ formData, setFormData }) {
   const { t } = useTranslation();
@@ -24,7 +23,7 @@ function SurveyForm({ formData, setFormData }) {
 
   function handleCheckboxChange(e) {
     const name = toCamelCase(e.target.name);
-    const value = e.target.value;
+    const value = e.target.value.toLowerCase();
     const checked = e.target.checked;
 
     setFormData((prev) => {
@@ -57,66 +56,85 @@ function SurveyForm({ formData, setFormData }) {
 
   return (
     <>
-      <div>
+      <Container>
         <Form className={styles.formWrapper} onSubmit={handleSignUp}>
-          <SurveyBox
-            label={t("signup.interest.title")}
-            options={[
-              t("signup.interest.option1"),
-              t("signup.interest.option2"),
-              t("signup.interest.option3"),
-              t("signup.interest.option4"),
-              t("signup.interest.option5"),
-              t("signup.interest.option6"),
-              t("signup.interest.option7"),
-              t("signup.interest.option8"),
-            ]}
-            name="interest"
-            value={formData.interest}
-            onChange={handleChange}
-            onCheck={handleCheckboxChange}
-            setFormData={setFormData}
-          />
-          <SurveyBox
-            label={t("signup.language.title")}
-            options={[
-              t("signup.language.option1"),
-              t("signup.language.option2"),
-              t("signup.language.option3"),
-              t("signup.language.option4"),
-              t("signup.language.option5"),
-              t("signup.language.option6"),
-            ]}
-            name="language"
-            value={formData.language}
-            onChange={handleChange}
-            onCheck={handleCheckboxChange}
-            setFormData={setFormData}
-          />
-          <SurveyBox
-            label={t("signup.purpose.title")}
-            options={[
-              t("signup.purpose.option1"),
-              t("signup.purpose.option2"),
-              t("signup.purpose.option3"),
-            ]}
-            name="email"
-            value={formData.purpose}
-            onChange={handleChange}
-            onCheck={handleCheckboxChange}
-            setFormData={setFormData}
-          />
-          <SurveyBox
-            label={t("signup.matchingType.title")}
-            options={["1:1"]}
-            name="matchingType"
-            value={formData.matchingType}
-            onChange={handleChange}
-            onCheck={handleCheckboxChange}
-            setFormData={setFormData}
-          />
+          <Row className={styles.formRow}>
+            <Col className={styles.formColumn}>
+              <Row className={styles.formRow}>
+                <Col className={styles.formColumn}>
+                  <SurveyBox
+                    label={t("signup.interest.title")}
+                    options={[
+                      t("signup.interest.option1"),
+                      t("signup.interest.option2"),
+                      t("signup.interest.option3"),
+                      t("signup.interest.option4"),
+                      t("signup.interest.option5"),
+                      t("signup.interest.option6"),
+                      t("signup.interest.option7"),
+                      t("signup.interest.option8"),
+                    ]}
+                    name="interest"
+                    value={formData.interest}
+                    onChange={handleChange}
+                    onCheck={handleCheckboxChange}
+                    setFormData={setFormData}
+                  />
+                </Col>
+                <Col className={styles.formColumn}>
+                  <SurveyBox
+                    label={t("signup.language.title")}
+                    options={[
+                      t("signup.language.option1"),
+                      t("signup.language.option2"),
+                      t("signup.language.option3"),
+                      t("signup.language.option4"),
+                      t("signup.language.option5"),
+                      t("signup.language.option6"),
+                    ]}
+                    name="language"
+                    value={formData.language}
+                    onChange={handleChange}
+                    onCheck={handleCheckboxChange}
+                    setFormData={setFormData}
+                  />
+                </Col>
+              </Row>
+            </Col>
+
+            <Col className={styles.formColumn}>
+              <Row className={styles.formRow}>
+                <Col className={styles.formColumn}>
+                  <SurveyBox
+                    label={t("signup.purpose.title")}
+                    options={[
+                      t("signup.purpose.option1"),
+                      t("signup.purpose.option2"),
+                      t("signup.purpose.option3"),
+                    ]}
+                    name="email"
+                    value={formData.purpose}
+                    onChange={handleChange}
+                    onCheck={handleCheckboxChange}
+                    setFormData={setFormData}
+                  />
+                </Col>
+                <Col className={styles.formColumn}>
+                  <SurveyBox
+                    label={t("signup.matchingType.title")}
+                    options={["1:1"]}
+                    name="matchingType"
+                    value={formData.matchingType}
+                    onChange={handleChange}
+                    onCheck={handleCheckboxChange}
+                    setFormData={setFormData}
+                  />
+                </Col>
+              </Row>
+            </Col>
+          </Row>
         </Form>
-      </div>
+      </Container>
       <button className={sharedStyles.submitButton} onClick={handleSignUp}>
         {t("signup.submit")}
       </button>

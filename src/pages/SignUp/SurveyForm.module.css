@@ -8,7 +8,7 @@
   background-color: rgba(245, 245, 245, 1);
   border-radius: 8px;
   margin: 0px 10px;
-  width: 15rem;
+  width: 12em;
   padding: 1em;
 }
 
@@ -20,4 +20,31 @@
   margin-bottom: 0.5rem;
 }
 
+.formRow {
+  row-gap: 3em;
+  justify-content: center;
+}
+
+.formColumn {
+  display: flex;
+  justify-content: center;
+}
+
 /* ------- Responsive Styles ------- */
+@media (max-width: 1200px) {
+  .formSubcontainer {
+    font-size: 1.1em;
+  }
+}
+
+@media (max-width: 992px) {
+  .formSubcontainer {
+    font-size: 1.2em;
+  }
+}
+
+@media (max-width: 768px) {
+  .formSubcontainer {
+    font-size: 1.4em;
+  }
+}
