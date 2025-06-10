@@ -20,7 +20,7 @@ function NavigationBar() {
         <Navbar.Collapse id="main-navbar">
           <div className="w-100 d-flex flex-column flex-lg-row justify-content-between align-items-start align-items-lg-center mt-3 mt-lg-0">
             <Nav className="d-flex align-items-center gap-4">
-              <Nav.Link href="/">{t("home.home")}</Nav.Link>
+              <Nav.Link href="/home">{t("home.home")}</Nav.Link>
               <Nav.Link href="/community">{t("home.community")}</Nav.Link>
               <Nav.Link href="/notice">{t("home.notice")}</Nav.Link>
               <Nav.Link href="/calendar">{t("home.calendar")}</Nav.Link>

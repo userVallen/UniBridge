@@ -1,6 +1,7 @@
 import { useContext, useRef, useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Row, Col, Container } from "react-bootstrap";
+import moment from "moment";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
@@ -101,6 +102,13 @@ function Calendar() {
               />
               <FullCalendar
                 plugins={[dayGridPlugin, interactionPlugin]}
+                eventDataTransform={(eventData) => {
+                  eventData.end = moment(eventData.end)
+                    .add(1, "days")
+                    .format("YYYY-MM-DD");
+                  return eventData;
+                }}
+                displayEventEnd={true}
                 initialView="dayGridMonth"
                 events={sharedEvents}
                 headerToolbar={false}
@@ -110,7 +118,7 @@ function Calendar() {
                 locale={i18n.language}
                 dayCellContent={renderDayCellContent}
                 selectable={true}
-                editable={true} // Should be editable ***strictly for admins*** (editable for all for now)
+                editable={false} // Should be editable ***strictly for admins*** (uneditable for now)
                 eventDidMount={(info) => {
                   const eventMajor = info.event.extendedProps.major;
 
@@ -133,12 +141,10 @@ function Calendar() {
 
                   // Parse the event’s start and end dates (if end doesn’t exist, it’s treated as a one-day event).
                   const dayEvents = sharedEvents.filter((event) => {
-                    const start = event.event_start
-                      ? new Date(event.event_start)
+                    const start = event.start
+                      ? new Date(event.start)
                       : new Date(event.date);
-                    const end = event.event_end
-                      ? new Date(event.event_end)
-                      : start;
+                    const end = event.end ? new Date(event.end) : start;
 
                     // Normalize times to ignore hours/minutes
                     const normalizedSelectedDate = new Date(

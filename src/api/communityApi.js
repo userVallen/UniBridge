@@ -8,6 +8,7 @@ export async function fetchCommunityPosts() {
   const modifiedResult = response.data.results.map((post) => ({
     ...post,
     isCommunity: true,
+    // end: post.end + 1,
   }));
   return modifiedResult;
 }

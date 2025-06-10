@@ -49,19 +49,21 @@ function FullCalendarWrapper() {
         onClickNext={handleNext}
         onClickPrev={handlePrev}
       />
-      <div className={`lang-${i18n.language}`}>
-        <FullCalendar
-          plugins={[dayGridPlugin, interactionPlugin]}
-          initialView="dayGridMonth"
-          events={sharedEvents}
-          headerToolbar={false}
-          ref={calendarRef}
-          height="auto"
-          locales={allLocales}
-          locale={i18n.language}
-          dayCellContent={renderDayCellContent}
-        />
-      </div>
+      <a href="/calendar">
+        <div className={`lang-${i18n.language}`}>
+          <FullCalendar
+            plugins={[dayGridPlugin, interactionPlugin]}
+            initialView="dayGridMonth"
+            events={sharedEvents}
+            headerToolbar={false}
+            ref={calendarRef}
+            height="auto"
+            locales={allLocales}
+            locale={i18n.language}
+            dayCellContent={renderDayCellContent}
+          />
+        </div>
+      </a>
     </>
   );
 }
