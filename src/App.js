@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { UserGroupsProvider } from "./contexts/UserGroupsContext";
 import { SharedEventProvider } from "./contexts/SharedEventsContext";
+import { AuthProvider } from "./contexts/AuthContext";
 import Calendar from "./pages/Calendar/Calendar";
 import Community from "./pages/Community/Community";
 import Home from "./pages/Home/Home";
@@ -13,6 +14,7 @@ import Landing from "./pages/Landing/Landing";
 
 export default function App() {
   return (
+    // <AuthProvider>
     <UserGroupsProvider>
       <SharedEventProvider>
         <Router>
@@ -30,5 +32,6 @@ export default function App() {
         </Router>
       </SharedEventProvider>
     </UserGroupsProvider>
+    // </AuthProvider>
   );
 }

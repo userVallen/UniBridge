@@ -1,4 +1,4 @@
-import { useContext, useRef, useState, useEffect } from "react";
+import { useContext, useRef, useState, useEffect, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { Row, Col, Container } from "react-bootstrap";
 import moment from "moment";
@@ -18,18 +18,19 @@ function Calendar() {
   const [startDate, setStartDate] = useState(new Date());
   const calendarRef = useRef(null);
   const { i18n } = useTranslation();
-  const { sharedEvents, setSharedEvent } = useContext(SharedEventsContext);
+  const { eventsToDisplay, setEventsToDisplay } =
+    useContext(SharedEventsContext);
   const [selectedMajors, setSelectedMajors] = useState([]);
   const [selectedDayEvents, setSelectedDayEvents] = useState();
 
   useEffect(() => {
-    console.log(sharedEvents);
+    console.log(eventsToDisplay);
   });
 
   useEffect(() => {
     if (!selectedDayEvents) return; // Do nothing if no day has been clicked
 
-    const filteredEvents = sharedEvents.filter((event) => {
+    const filteredEvents = eventsToDisplay.filter((event) => {
       const eventDate = new Date(event.event_start || event.date); // Parse date from event
       const selectedDate = new Date(selectedDayEvents.date); // Clicked date
 
@@ -87,6 +88,13 @@ function Calendar() {
     return { html: `<div>${arg.date.getDate()}</div>` };
   }
 
+  const transformedEvents = useMemo(() => {
+    return eventsToDisplay.map((event) => ({
+      ...event,
+      end: moment(event.end).add(1, "days").format("YYYY-MM-DD"),
+    }));
+  });
+
   return (
     <>
       <NavigationBar />
@@ -102,15 +110,9 @@ function Calendar() {
               />
               <FullCalendar
                 plugins={[dayGridPlugin, interactionPlugin]}
-                eventDataTransform={(eventData) => {
-                  eventData.end = moment(eventData.end)
-                    .add(1, "days")
-                    .format("YYYY-MM-DD");
-                  return eventData;
-                }}
                 displayEventEnd={true}
                 initialView="dayGridMonth"
-                events={sharedEvents}
+                events={transformedEvents}
                 headerToolbar={false}
                 ref={calendarRef}
                 height="auto"
@@ -120,7 +122,7 @@ function Calendar() {
                 selectable={true}
                 editable={false} // Should be editable ***strictly for admins*** (uneditable for now)
                 eventDidMount={(info) => {
-                  const eventMajor = info.event.extendedProps.major;
+                  const eventMajor = info.event.extendedProps.department;
 
                   // If no filters are applied, display all majors
                   if (selectedMajors.length === 0) {
@@ -133,6 +135,9 @@ function Calendar() {
                     info.el.style.display = "";
                   } else {
                     info.el.style.display = "none";
+                    console.log("At least one major is applied");
+                    console.log(selectedMajors);
+                    console.log(eventMajor);
                   }
                 }}
                 key={selectedMajors.join(",")}
@@ -140,7 +145,7 @@ function Calendar() {
                   const selectedDate = new Date(info.dateStr); //YYYY-MM-DD
 
                   // Parse the event’s start and end dates (if end doesn’t exist, it’s treated as a one-day event).
-                  const dayEvents = sharedEvents.filter((event) => {
+                  const dayEvents = eventsToDisplay.filter((event) => {
                     const start = event.start
                       ? new Date(event.start)
                       : new Date(event.date);

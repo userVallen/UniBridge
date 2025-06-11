@@ -13,7 +13,7 @@ function Notice() {
   return (
     <>
       <NavigationBar />
-      <TitleCard title={t("notice.title")} />
+      <TitleCard title={t("notice.title")} enableTimeAndPlace />
       <BulletinBoard
         notice
         entries={noticeEntries}

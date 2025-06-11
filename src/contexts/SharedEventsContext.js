@@ -10,6 +10,7 @@ export const SharedEventProvider = ({ children }) => {
   const [communityEntries, setCommunityEntries] = useState([]);
   const [noticeEntries, setNoticeEntries] = useState([]);
   const [sharedEvents, setSharedEvent] = useState([]);
+  const [eventsToDisplay, setEventsToDisplay] = useState([]);
 
   function isAllDay(event) {
     const start = new Date(event.start);
@@ -70,17 +71,18 @@ export const SharedEventProvider = ({ children }) => {
 
   // Combine into sharedEvents when either list changes
   useEffect(() => {
-    const allEvents = [...communityEntries, ...noticeEntries];
+    // const allEvents = [...communityEntries, ...noticeEntries];
+    const eventsToDisplay = [...noticeEntries];
 
-    const formatted = allEvents.map((event) => ({
+    const formatted = eventsToDisplay.map((event) => ({
       ...event,
       backgroundColor: majorColorClassMap[event.department]?.background,
       borderColor: majorColorClassMap[event.department]?.border,
       textColor: majorColorClassMap[event.department]?.color,
     }));
 
-    setSharedEvent(formatted);
-  }, [communityEntries, noticeEntries]);
+    setEventsToDisplay(formatted);
+  }, [noticeEntries]);
 
   return (
     <SharedEventsContext.Provider
@@ -91,6 +93,8 @@ export const SharedEventProvider = ({ children }) => {
         setNoticeEntries,
         communityEntries,
         setCommunityEntries,
+        eventsToDisplay,
+        setEventsToDisplay,
       }}
     >
       {children}

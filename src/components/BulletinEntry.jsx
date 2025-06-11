@@ -8,7 +8,7 @@ function BulletinEntry(props) {
     const dateObject = new Date(props.date);
     const yearToFormat = dateObject.getFullYear();
     const monthToFormat = dateObject.getMonth();
-    const dateToFormat = dateObject.getDate() + 1;
+    const dateToFormat = dateObject.getDate();
     const koreanDate = `${yearToFormat}년 ${monthToFormat}월 ${dateToFormat}일`;
 
     if (koreanDate == "Invalid Date") return "date";

@@ -1,13 +1,18 @@
 .titleCard {
   display: flex;
   align-items: start;
-  justify-content: start;
+  justify-content: space-between;
   height: 18rem;
   background-color: rgba(38, 84, 206, 0.3);
   font-family: "Nanum Gothic", sans-serif;
   font-size: 40px;
   font-weight: 700;
   padding: 2.5rem 3rem;
+}
+
+.titleCard > button {
+  background-color: transparent;
+  border: none;
 }
 
 /* ------- Responsive Styles ------- */

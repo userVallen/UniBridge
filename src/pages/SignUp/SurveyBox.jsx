@@ -1,7 +1,10 @@
+import { useTranslation } from "react-i18next";
 import { Form } from "react-bootstrap";
 import styles from "./SurveyForm.module.css";
 
 function SurveyBox(props) {
+  const { t } = useTranslation();
+
   return (
     <Form.Group className={styles.formSubcontainer}>
       <Form.Label htmlFor="">{props.label}</Form.Label>

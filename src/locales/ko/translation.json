@@ -58,6 +58,16 @@
     "GCE Council": "글로벌기초교육학부 학생회"
   },
 
+  "create": {
+    "modalTitle": "게시물 쓰기",
+    "title": "게시물 제목",
+    "content": "Content",
+    "location": "Location",
+    "start": "Start",
+    "end": "End",
+    "createPost": "Create Post"
+  },
+
   "filter": {
     "": "",
     "학과": "학과",

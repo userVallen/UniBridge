@@ -60,6 +60,16 @@
     "GCE Council": "GCE Council"
   },
 
+  "create": {
+    "modalTitle": "Create a post",
+    "title": "Post title",
+    "content": "Content",
+    "location": "Location",
+    "start": "Start",
+    "end": "End",
+    "createPost": "Create Post"
+  },
+
   "filter": {
     "": "",
     "Department": "Department",

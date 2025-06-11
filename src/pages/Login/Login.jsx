@@ -1,14 +1,17 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Container, Form } from "react-bootstrap";
+import { useAuth } from "../../contexts/AuthContext";
 import { loginUser } from "../../api/loginApi";
 import { useNavigate } from "react-router-dom";
+// import { tokenManager } from "../../utils/tokenManager";
 import LanguageToggle from "../../components/LanguageToggle";
 import sharedStyles from "../../styles/AuthPage.module.css";
 import styles from "./Login.module.css";
 
 function Login() {
   const { t } = useTranslation();
+  // const { login } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordVisibility, setPasswordVisibility] = useState("false");
@@ -20,12 +23,38 @@ function Login() {
     try {
       const data = await loginUser(email, password);
       console.log("Login successful:", data);
-      // TODO: save token or navigate to another page
+
+      // // Store tokens and fetch profile via AuthContext
+      // await login({
+      //   accessToken: data.access,
+      //   refreshToken: data.refresh,
+      // });
+
+      console.log("this is from handleLogin, data is:", data);
+
+      // // Save access and refresh tokens
+      // tokenManager.setTokens({
+      //   accessToken: data.access,
+      //   refreshToken: data.refresh,
+      // });
+
+      // Redirect to home page
       navigate("/home");
     } catch (err) {
       console.error("Login failed:", err);
       // Optionally show error message to user
     }
+
+    // e.preventDefault();
+    // const result = await login(email, password);
+
+    // if (result.success) {
+    //   console.log("Login successful");
+    //   navigate("/home");
+    // } else {
+    //   console.error("Login failed:", result.error);
+    //   // Optionally show error to user
+    // }
   }
 
   return (

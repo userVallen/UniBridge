@@ -60,7 +60,6 @@ function SurveyForm({ formData, setFormData }) {
       const data = await submitUserInfo(formData.userInfo);
       console.log("userInfo submitted:", data);
       // TODO: save token or navigate to another page
-      // navigate("/home");
     } catch (err) {
       console.error("Sign up failed:", err);
       // Optionally show error message to user
@@ -70,7 +69,10 @@ function SurveyForm({ formData, setFormData }) {
       const data = await submitBuddyInfo(formData.buddyInfo);
       console.log("buddyInfo submitted:", data);
       // TODO: save token or navigate to another page
-      navigate("/home");
+      console.log(
+        "User and buddy information has been saved. Sign in successful"
+      );
+      navigate("/login");
     } catch (err) {
       console.error("Sign up failed:", err);
       // Optionally show error message to user
