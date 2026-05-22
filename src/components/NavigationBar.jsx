@@ -1,8 +1,8 @@
 import { useTranslation } from "react-i18next";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import LanguageToggle from "./LanguageToggle";
-import logo from "../assets/logo.png";
-import profile from "../assets/profile.png";
+import logo from "../assets/icons/logo.png";
+import profile from "../assets/icons/profile.png";
 import styles from "./NavigationBar.module.css";
 
 function NavigationBar() {

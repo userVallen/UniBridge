@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from "react";
-import profile from "../assets/profile.png";
+import profile from "../assets/icons/profile.png";
 
 export const UserGroupsContext = createContext();
 

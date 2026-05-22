@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { ToggleButtonGroup, ToggleButton } from "react-bootstrap";
-import globe from "../assets/globe.png";
+import globe from "../assets/icons/globe.png";
 import styles from "./LanguageToggle.module.css";
 
 function LanguageToggle() {

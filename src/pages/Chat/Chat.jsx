@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import NavigationBar from "../../components/NavigationBar";
 import tree from "../../uploads/tree.png";
-import profile from "../../assets/profile.png";
+import profile from "../../assets/icons/profile.png";
 import styles from "./Chat.module.css";
 
 function Chat() {
@@ -223,7 +223,7 @@ function Chat() {
                   </div>
                   <div className={styles.lastMessageTime}>
                     {formatTimestamp(
-                      chat.messages[chat.messages.length - 1].timestamp
+                      chat.messages[chat.messages.length - 1].timestamp,
                     )}
                   </div>
                 </div>

@@ -17,7 +17,7 @@ function FullCalendarWrapper() {
     const prevMonth = new Date(
       startDate.getFullYear(),
       startDate.getMonth() - 1,
-      1
+      1,
     );
     setStartDate(prevMonth);
 
@@ -29,7 +29,7 @@ function FullCalendarWrapper() {
     const nextMonth = new Date(
       startDate.getFullYear(),
       startDate.getMonth() + 1,
-      1
+      1,
     );
     setStartDate(nextMonth);
 
